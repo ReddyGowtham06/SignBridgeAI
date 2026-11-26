@@ -1,0 +1,10 @@
+{
+  "model_type": "softmax_regression",
+  "train_samples": 615,
+  "feature_dim": 758,
+  "classes_count": 49,
+  "train_accuracy": 0.9659,
+  "val_accuracy": 0.7536,
+  "training_time_sec": 3.12,
+  "weights_file": "D:\\SignBridgeAI\\ai-training\\models\\baseline_model.npz"
+}

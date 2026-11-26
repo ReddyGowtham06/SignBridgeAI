@@ -1,0 +1,21 @@
+# Python bytecode & cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.log
+
+# Virtual Environments
+.venv/
+env/
+venv/
+
+# Large extracted & generated dataset artifacts
+data/raw_landmarks/
+data/processed/
+sample_output/
+
+# Trained model checkpoints & reports
+models/*.npz
+reports/*.json
+reports/*.txt
+

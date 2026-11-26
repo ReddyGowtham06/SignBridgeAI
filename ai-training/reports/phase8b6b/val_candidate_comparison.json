@@ -1,0 +1,79 @@
+{
+  "selection_metric": "macro_f1",
+  "champion_model": "m1_softmax_regression",
+  "champion_name": "M1: Softmax Logistic Reg (L2)",
+  "ranking": [
+    {
+      "rank": 1,
+      "model_key": "m1_softmax_regression",
+      "model_name": "M1: Softmax Logistic Reg (L2)",
+      "val_macro_f1": 0.5178,
+      "val_accuracy": 0.5423,
+      "val_top3_accuracy": 0.7324,
+      "weak_classes_count": 18,
+      "training_time_sec": 34.41,
+      "hyperparameters": {
+        "lr": 0.05,
+        "l2": 0.01,
+        "bs": 32
+      }
+    },
+    {
+      "rank": 2,
+      "model_key": "m4_linear_svm_ovr",
+      "model_name": "M4: Linear SVM (One-vs-Rest)",
+      "val_macro_f1": 0.5142,
+      "val_accuracy": 0.5563,
+      "val_top3_accuracy": 0.7676,
+      "weak_classes_count": 19,
+      "training_time_sec": 25.44,
+      "hyperparameters": {
+        "C": 1.0,
+        "loss": "squared_hinge"
+      }
+    },
+    {
+      "rank": 3,
+      "model_key": "m5_small_mlp",
+      "model_name": "M5: Small MLP (128 units, Adam)",
+      "val_macro_f1": 0.4838,
+      "val_accuracy": 0.5141,
+      "val_top3_accuracy": 0.7887,
+      "weak_classes_count": 21,
+      "training_time_sec": 3.84,
+      "hyperparameters": {
+        "hidden_dim": 128,
+        "dropout": 0.4,
+        "l2_reg": 0.001,
+        "epochs_trained": 58
+      }
+    },
+    {
+      "rank": 4,
+      "model_key": "m2_nearest_centroid_euclidean",
+      "model_name": "M2: Nearest Centroid (Euclidean)",
+      "val_macro_f1": 0.2702,
+      "val_accuracy": 0.3169,
+      "val_top3_accuracy": 0.5352,
+      "weak_classes_count": 34,
+      "training_time_sec": 0.002,
+      "hyperparameters": {
+        "metric": "euclidean"
+      }
+    },
+    {
+      "rank": 5,
+      "model_key": "m3_nearest_centroid_cosine",
+      "model_name": "M3: Nearest Centroid (Cosine)",
+      "val_macro_f1": 0.2593,
+      "val_accuracy": 0.3099,
+      "val_top3_accuracy": 0.5634,
+      "weak_classes_count": 35,
+      "training_time_sec": 0.004,
+      "hyperparameters": {
+        "metric": "cosine",
+        "normalized": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+class_id,class_name,category,held_out_support,held_out_recall,held_out_f1,hand_detection_risk,gate_rejection_risk,primary_failure_mechanism,live_testing_status
+0,1.bird,Single-Hand Dynamic,3,0.6667,0.8000,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+1,10.youareperfect,Dynamic-Compound,3,1.0000,0.7500,Medium,Medium,Temporal Window Truncation,Protocol Defined — Pending Live Participant Session
+2,11.monsoon,Single-Hand Dynamic,3,0.3333,0.3333,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+3,12.afternoon,Single-Hand Dynamic,2,0.5000,0.6667,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+4,13.angry,Single-Hand Dynamic,3,0.0000,0.0000,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+5,14.bad,Single-Hand Dynamic,3,1.0000,1.0000,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+6,15.boy,Single-Hand Dynamic,2,0.5000,0.5000,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+7,16.eat,Facial-Proximity,3,0.0000,0.0000,High,High,29.nose / Facial Feature Collapse,Protocol Defined — Pending Live Participant Session
+8,17.friend,Two-Hand Mutual Occlusion,3,0.0000,0.0000,High,Medium,Tracking Occlusion & Identity Flipping,Protocol Defined — Pending Live Participant Session
+9,18.drinking,Facial-Proximity,3,0.3333,0.4000,High,High,29.nose / Facial Feature Collapse,Protocol Defined — Pending Live Participant Session
+10,19.girl,Single-Hand Dynamic,3,1.0000,0.7500,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+11,2.black,Facial-Proximity,3,0.0000,0.0000,High,High,29.nose / Facial Feature Collapse,Protocol Defined — Pending Live Participant Session
+12,20.brother,Two-Hand Mutual Occlusion,3,0.3333,0.5000,High,Medium,Tracking Occlusion & Identity Flipping,Protocol Defined — Pending Live Participant Session
+13,21.good,Low-Motion Static,3,0.0000,0.0000,Low,Extreme,Gate 2 (Motion < 0.05) Suppression,Protocol Defined — Pending Live Participant Session
+14,22.father,Two-Hand Mutual Occlusion,3,0.3333,0.5000,High,Medium,Tracking Occlusion & Identity Flipping,Protocol Defined — Pending Live Participant Session
+15,23.evening,Single-Hand Dynamic,3,1.0000,0.7500,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+16,24.help,Single-Hand Dynamic,3,0.6667,0.8000,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+17,25.mother,Two-Hand Mutual Occlusion,3,0.0000,0.0000,High,Medium,Tracking Occlusion & Identity Flipping,Protocol Defined — Pending Live Participant Session
+18,26.NAME,Single-Hand Dynamic,2,1.0000,1.0000,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+19,27.Night,Single-Hand Dynamic,3,1.0000,1.0000,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+20,28.Music,Single-Hand Dynamic,3,1.0000,0.8571,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+21,29.nose,Facial-Proximity,3,0.3333,0.1429,High,High,29.nose / Facial Feature Collapse,Protocol Defined — Pending Live Participant Session
+22,3.cat,Single-Hand Dynamic,2,0.5000,0.3333,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+23,30.sleep,Low-Motion Static,3,0.6667,0.6667,Low,Extreme,Gate 2 (Motion < 0.05) Suppression,Protocol Defined — Pending Live Participant Session
+24,31.sit,Single-Hand Dynamic,3,1.0000,0.6000,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+25,32.sorry,Single-Hand Dynamic,3,1.0000,0.7500,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+26,33.stand,Single-Hand Dynamic,3,0.3333,0.5000,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+27,34.stop,Low-Motion Static,3,0.6667,0.6667,Low,Extreme,Gate 2 (Motion < 0.05) Suppression,Protocol Defined — Pending Live Participant Session
+28,35.student,Two-Hand Mutual Occlusion,3,0.3333,0.4000,High,Medium,Tracking Occlusion & Identity Flipping,Protocol Defined — Pending Live Participant Session
+29,36.study,Two-Hand Mutual Occlusion,3,1.0000,0.7500,High,Medium,Tracking Occlusion & Identity Flipping,Protocol Defined — Pending Live Participant Session
+30,37.teacher,Two-Hand Mutual Occlusion,3,0.3333,0.4000,High,Medium,Tracking Occlusion & Identity Flipping,Protocol Defined — Pending Live Participant Session
+31,38.thankyou,Single-Hand Dynamic,3,0.0000,0.0000,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+32,39.today,Single-Hand Dynamic,3,0.3333,0.5000,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+33,4.cow,Single-Hand Dynamic,3,0.0000,0.0000,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+34,40.tommorow,Single-Hand Dynamic,3,1.0000,0.7500,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+35,41.welcome,Single-Hand Dynamic,3,1.0000,1.0000,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+36,42.work,Two-Hand Mutual Occlusion,3,0.0000,0.0000,High,Medium,Tracking Occlusion & Identity Flipping,Protocol Defined — Pending Live Participant Session
+37,43.yesterday,Single-Hand Dynamic,3,0.3333,0.5000,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+38,44.teeth,Facial-Proximity,3,0.0000,0.0000,High,High,29.nose / Facial Feature Collapse,Protocol Defined — Pending Live Participant Session
+39,45.hand,Low-Motion Static,3,1.0000,1.0000,Low,Extreme,Gate 2 (Motion < 0.05) Suppression,Protocol Defined — Pending Live Participant Session
+40,46.write,Single-Hand Dynamic,3,1.0000,0.8571,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+41,47.umberlla,Two-Hand Mutual Occlusion,2,0.0000,0.0000,High,Medium,Tracking Occlusion & Identity Flipping,Protocol Defined — Pending Live Participant Session
+42,48.ring,Single-Hand Dynamic,3,1.0000,0.7500,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+43,5.dog,Single-Hand Dynamic,3,0.0000,0.0000,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+44,50.power,Single-Hand Dynamic,3,1.0000,0.8571,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+45,6.fish,Single-Hand Dynamic,3,0.3333,0.5000,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session
+46,7.goodmorning,Two-Hand Mutual Occlusion,3,0.0000,0.0000,High,Medium,Tracking Occlusion & Identity Flipping,Protocol Defined — Pending Live Participant Session
+47,8.grey,Facial-Proximity,3,0.0000,0.0000,High,High,29.nose / Facial Feature Collapse,Protocol Defined — Pending Live Participant Session
+48,9.hello,Single-Hand Dynamic,3,1.0000,0.5455,Low,Low,Decision Margin Proximity,Protocol Defined — Pending Live Participant Session

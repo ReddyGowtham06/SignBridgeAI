@@ -1,0 +1,31 @@
+{
+  "auditTimestamp": "2026-11-25T10:44:09.552Z",
+  "totalSamplesEvaluated": 142,
+  "maxLogitDiff": 0.00000667572021484375,
+  "meanLogitDiff": 4.3938063715776517e-7,
+  "maxProbDiff": 0.0000011026859283447266,
+  "meanProbDiff": 1.1868231587553984e-8,
+  "maxScaledDiff": 4.5929293523983006e-7,
+  "top1Matches": 142,
+  "top1AgreementPercent": 100,
+  "top3Matches": 142,
+  "top3AgreementPercent": 100,
+  "mismatchesCount": 0,
+  "mismatches": [],
+  "latencyBenchmarking": {
+    "unit": "microseconds",
+    "meanLatencyUs": 1012.3,
+    "p50LatencyUs": 914.5,
+    "p95LatencyUs": 1638,
+    "p99LatencyUs": 5401.8,
+    "meanLatencyMs": 1.012,
+    "p95LatencyMs": 1.638
+  },
+  "rejectionGatesVerification": {
+    "gate1_presence": true,
+    "gate2_motion": true,
+    "gate3_confidence": true,
+    "gate4_temporal_debouncer": true
+  },
+  "overallVerdict": "PASS"
+}

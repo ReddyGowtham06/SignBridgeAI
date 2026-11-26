@@ -1,0 +1,25 @@
+{
+  "benchmark_environment": {
+    "iterations": 1000,
+    "warmup": 100,
+    "runtime": "Python 3.14 (ai-training venv)",
+    "platform": "win32"
+  },
+  "m1_original_gate": {
+    "mean_ms": 0.044563999988895375,
+    "median_ms": 0.04369999987829942,
+    "p95_ms": 0.0474050008051563,
+    "p99_ms": 0.06450700000641518
+  },
+  "m1_adaptive_gate": {
+    "mean_ms": 0.044615199987674714,
+    "median_ms": 0.04400000034365803,
+    "p95_ms": 0.046799999836366624,
+    "p99_ms": 0.06610999946133232
+  },
+  "latency_overhead": {
+    "delta_median_ms": 0.00030000046535860747,
+    "relative_change_pct": 0.6864999226409195,
+    "budget_compliance": "Under 0.1 ms per evaluation, well within 20 ms budget."
+  }
+}

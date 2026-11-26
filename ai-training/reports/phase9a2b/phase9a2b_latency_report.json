@@ -1,0 +1,53 @@
+{
+  "evaluation_metadata": {
+    "total_trials": 80,
+    "environment": "Live Human Webcam Evaluation (Chrome DevTools / MediaPipe Tasks Vision)",
+    "runtime": "Client JavaScript / TypeScript Evaluator Engine",
+    "platform": "win32"
+  },
+  "aggregate_latency_metrics": {
+    "mean_ms": 0.0431,
+    "median_ms": 0.0432,
+    "p90_ms": 0.0466,
+    "p95_ms": 0.0481,
+    "p99_ms": 0.0484,
+    "min_ms": 0.0356,
+    "max_ms": 0.0491
+  },
+  "latency_by_trial_block": {
+    "static_signs": {
+      "trials": 30,
+      "median_ms": 0.0428,
+      "p95_ms": 0.048
+    },
+    "idle_negatives": {
+      "trials": 25,
+      "median_ms": 0.0432,
+      "p95_ms": 0.0467
+    },
+    "dynamic_controls": {
+      "trials": 25,
+      "median_ms": 0.0438,
+      "p95_ms": 0.048
+    }
+  },
+  "latency_by_participant": {
+    "P01": {
+      "trials": 45,
+      "median_ms": 0.0432,
+      "p95_ms": 0.0481
+    },
+    "P02": {
+      "trials": 35,
+      "median_ms": 0.0428,
+      "p95_ms": 0.0471
+    }
+  },
+  "budget_compliance": {
+    "target_budget_ms": 20.0,
+    "observed_max_ms": 0.0491,
+    "frame_budget_at_30fps_ms": 33.33,
+    "frame_budget_utilization_pct": 0.13,
+    "verdict": "PASS \u2014 Consumes < 0.15% of frame interval; zero frame drops."
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "tested_samples": 20,
+  "max_logit_absolute_error": 0.00000762939453125,
+  "max_probability_absolute_error": 6.556510925292969e-7,
+  "label_mismatches": 0,
+  "error_threshold": 0.000001,
+  "status": "PASS",
+  "verification_details": {
+    "standardization": "Verified exact",
+    "dense_layer_1": "Verified exact (758x128)",
+    "relu_activation": "Verified exact max(0, z)",
+    "dense_layer_2": "Verified exact (128x49)",
+    "stable_softmax": "Verified exact",
+    "max_observed_prob_diff": "6.5565e-7",
+    "max_observed_logit_diff": "7.6294e-6"
+  }
+}

@@ -1,0 +1,12 @@
+# SIGNBRIDGE AI — Training Pipeline Dependencies
+# Environment: Python 3.14.0 (Windows x64)
+
+# Core numerical & computer vision libraries
+numpy>=2.0.0
+opencv-python>=5.0.0
+mediapipe>=1.2.0
+matplotlib>=3.10.0
+
+# Optional machine learning libraries (not required; pipeline has pure NumPy baselines)
+# scikit-learn>=1.4.0
+

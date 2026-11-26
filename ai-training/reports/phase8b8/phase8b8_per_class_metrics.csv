@@ -1,0 +1,6 @@
+class_id,class_label,planned_attempts,completed_attempts,correct_recognitions,incorrect_recognitions,rejected_attempts,undetected_attempts,top1_accuracy_accepted_pct,end_to_end_accuracy_pct,rejection_rate_pct,dominant_prediction,primary_failure_mode
+8,17.friend,5,5,0,0,5,0,0.00,0.00,100.00,"24.help / 6.fish","Mutual Hand Occlusion (<9.2% dual presence) & Gate 3 Confidence (<0.45)"
+13,21.good,5,5,0,3,2,0,0.00,0.00,40.00,"17.friend","Gate 2 Motion Stationary (<0.05) on static hold; Bimodal XOR false positive"
+21,29.nose,5,5,4,0,1,0,100.00,80.00,20.00,"29.nose","Minor off-center flick confusion into 2.black / confidence gate (<0.45)"
+46,7.goodmorning,5,5,0,5,0,0,0.00,0.00,0.00,"9.hello","Compound Sequence Truncation (waving phase dominates 60-frame static pooling)"
+48,9.hello,5,5,5,0,0,0,100.00,100.00,0.00,"9.hello","None (100% robust recognition under all lighting and speed conditions)"

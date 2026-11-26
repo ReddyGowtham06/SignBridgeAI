@@ -1,0 +1,91 @@
+{
+  "metadata": {
+    "phase": "PHASE 8B.6D: CONTROLLED CHAMPION MODEL INTEGRATION",
+    "generated_at": "2026-11-25T08:03:26.992679+00:00",
+    "final_verdict": "PASS",
+    "verdict_summary": "Champion model successfully integrated into frontend/public/models/sign_classifier.json. 100% cryptographic parity, 100% TypeScript inference agreement, clean production build, and HTTP smoke test passed.",
+    "champion_model_name": "M1 \u2014 L2-Regularized Softmax Logistic Regression",
+    "source_file": "ai-training/models/phase8b6b/phase8b6b_champion.json",
+    "target_file": "frontend/public/models/sign_classifier.json",
+    "backup_files": [
+      "frontend/public/models/sign_classifier.backup_historical_pre_phase8b6d.json",
+      "ai-training/models/backups/sign_classifier_historical_pre_phase8b6d.json"
+    ]
+  },
+  "cryptographic_hashes": {
+    "original_production_model_sha256": "0495055bbff8892223ecb3171a472c0843f1e2c4318f4f5682fb3176179990c6",
+    "source_champion_model_sha256": "c8068a3fedd85645d736d16ebde450bd442970784adba40fdacb8970a4535274",
+    "integrated_production_model_sha256": "c8068a3fedd85645d736d16ebde450bd442970784adba40fdacb8970a4535274",
+    "backup_file_sha256": "0495055bbff8892223ecb3171a472c0843f1e2c4318f4f5682fb3176179990c6",
+    "hash_verification_status": "MATCH (Exact 100% byte-for-byte copy verified)"
+  },
+  "model_specifications": {
+    "feature_dim": 758,
+    "num_classes": 49,
+    "model_type": "m1_softmax_regression",
+    "file_size_bytes": 821217,
+    "file_size_kb": 801.97,
+    "parameters": {
+      "W_shape": [
+        758,
+        49
+      ],
+      "b_shape": [
+        49
+      ],
+      "scaler_mean_shape": [
+        758
+      ],
+      "scaler_scale_shape": [
+        758
+      ],
+      "labels_count": 49,
+      "classes_count": 49
+    },
+    "all_parameters_finite": true,
+    "all_scales_positive": true
+  },
+  "typescript_parity_verification": {
+    "test_samples_evaluated": 142,
+    "top1_agreement_percent": 100.0,
+    "top3_agreement_percent": 100.0,
+    "mismatches_count": 0,
+    "max_logit_diff": 6.68e-06,
+    "max_prob_diff": 1.1e-06,
+    "rejection_gates_status": {
+      "gate1_presence": "PASSED (presence < 0.20 rejected)",
+      "gate2_motion": "PASSED (motion < 0.05 rejected)",
+      "gate3_confidence": "PASSED (confidence < 0.45 rejected)",
+      "gate4_temporal_debouncer": "PASSED (consecutive >= 2 confirmed)"
+    }
+  },
+  "build_and_lint_audit": {
+    "linter": "oxlint",
+    "lint_result": "0 warnings, 0 errors (26 files scanned in 32ms)",
+    "typechecker": "tsc -b",
+    "typecheck_result": "PASSED (0 TypeScript errors)",
+    "bundler": "vite build",
+    "build_result": "PASSED (built in 777ms, dist/ created)"
+  },
+  "http_and_browser_smoke_test": {
+    "landing_page_endpoint": "HTTP 200 (1,120 bytes)",
+    "model_json_endpoint": "HTTP 200 (821,217 bytes, SHA-256 confirmed)",
+    "mediapipe_task_endpoint": "HTTP 200 (7,819,105 bytes)",
+    "http_load_model_test": "PASSED (loadModel fetched and parsed model without runtime errors)",
+    "runtime_errors": "Zero JavaScript runtime errors",
+    "webcam_disclaimer": "Confirmed: Recorded-dataset parity does NOT prove live webcam recognition. Live webcam testing belongs to Phase 8B.7."
+  },
+  "preservation_compliance": {
+    "production_inference_code_modified": false,
+    "mediapipe_landmarker_modified": false,
+    "feature_builder_modified": false,
+    "rejection_gates_modified": false,
+    "camera_controls_modified": false,
+    "historical_datasets_modified": false,
+    "m5_alternative_checkpoint_preserved": true
+  },
+  "rollback_plan": {
+    "status": "NOT_NEEDED_SUCCESSFUL_INTEGRATION",
+    "verified_rollback_command": "Copy-Item 'ai-training/models/backups/sign_classifier_historical_pre_phase8b6d.json' 'frontend/public/models/sign_classifier.json' -Force"
+  }
+}

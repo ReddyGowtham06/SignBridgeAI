@@ -1,0 +1,75 @@
+{
+  "benchmark_metadata": {
+    "timestamp": "2026-11-25T08:10:16.448Z",
+    "platform": "win32",
+    "arch": "x64",
+    "node_version": "v24.19.0",
+    "model_path": "frontend/public/models/sign_classifier.json"
+  },
+  "memory_allocation": {
+    "model_weights_transposed_bytes": 148568,
+    "model_bias_bytes": 196,
+    "scaler_mean_bytes": 3032,
+    "scaler_scale_bytes": 3032,
+    "total_parameter_bytes": 154828,
+    "total_parameter_kb": 151.2
+  },
+  "feature_builder_latency_us": {
+    "min": 63.99999999999295,
+    "p50": 83.10000000000173,
+    "median": 83.10000000000173,
+    "p90": 117.50000000000682,
+    "p95": 142.60500000000178,
+    "p99": 232.31999999999627,
+    "max": 2191.8000000000006,
+    "mean": 103.8062
+  },
+  "feature_builder_latency_ms": {
+    "mean": 0.1038,
+    "median": 0.0831,
+    "p90": 0.1175,
+    "p95": 0.1426,
+    "max": 2.1918
+  },
+  "classifier_inference_latency_us": {
+    "min": 48.50000000004684,
+    "p50": 50.900000000012824,
+    "median": 50.900000000012824,
+    "p90": 58.19999999999936,
+    "p95": 77.00499999999836,
+    "p99": 123.40500000000401,
+    "max": 293.2999999999879,
+    "mean": 54.56461999999902
+  },
+  "classifier_inference_latency_ms": {
+    "mean": 0.0546,
+    "median": 0.0509,
+    "p90": 0.0582,
+    "p95": 0.077,
+    "max": 0.2933,
+    "throughput_ops_sec": 18327
+  },
+  "debouncer_latency_us": {
+    "min": 0,
+    "p50": 0.09999999997489795,
+    "median": 0.09999999997489795,
+    "p90": 0.2000000000066393,
+    "p95": 0.2000000000066393,
+    "p99": 0.2000000000066393,
+    "max": 206.7000000000121,
+    "mean": 0.18607999999995856
+  },
+  "total_compute_latency_ms": {
+    "mean": 0.1586,
+    "p95": 0.2198
+  },
+  "cadence_timing_ms": {
+    "fps_standard": 30,
+    "buffer_window_duration_ms": 2000,
+    "stride_frames": 15,
+    "stride_cadence_ms": 500,
+    "debounce_required_streaks": 2,
+    "gesture_confirmation_cadence_ms": 1000,
+    "compute_margin_percent": 0.03
+  }
+}

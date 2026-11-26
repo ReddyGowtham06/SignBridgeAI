@@ -1,0 +1,209 @@
+{
+  "audit_metadata": {
+    "phase": "PHASE 8B.6A: MODEL TRAINING STRATEGY & ARCHITECTURE READINESS AUDIT",
+    "generated_at": "2026-11-25T07:28:37.947807+00:00",
+    "status": "APPROVED_READY_FOR_TRAINING",
+    "execution_mode": "STRICTLY_READ_ONLY_AUDIT",
+    "dataset_source": "ai-training/data/staged_phase8b5b_split/",
+    "feature_dimension": 758,
+    "class_count": 49,
+    "total_samples": 915,
+    "partitions": {
+      "train": {
+        "samples": 631,
+        "ratio": 0.6896,
+        "bursts": 184,
+        "classes": 49
+      },
+      "val": {
+        "samples": 142,
+        "ratio": 0.1552,
+        "bursts": 49,
+        "classes": 49
+      },
+      "test": {
+        "samples": 142,
+        "ratio": 0.1552,
+        "bursts": 49,
+        "classes": 49
+      }
+    }
+  },
+  "environment_audit": {
+    "python_version": "3.14.0 (Windows x64)",
+    "numpy_version": "2.5.4",
+    "opencv_version": "5.0.0.93",
+    "mediapipe_version": "1.2.0",
+    "scikit_learn_installed": false,
+    "scipy_installed": false,
+    "torch_installed": false,
+    "engine_architecture": "Pure NumPy Numerical Engine (Architected for Python 3.14 native Windows binary compatibility)"
+  },
+  "pipeline_inspection": {
+    "config_py": {
+      "status": "PASS_AUDITED",
+      "findings": "Central paths hardcoded to data/processed. Requires dedicated Phase 8B.6B script or configurable CLI flags to prevent overwriting historical Stage 6/7 baseline."
+    },
+    "train_py": {
+      "status": "PASS_AUDITED",
+      "findings": "Pure NumPy implementation of StandardScalerNumPy, SoftmaxRegressionNumPy, and NearestCentroidNumPy. StandardScaler correctly fit strictly on X_train. Supports L2 regularization and mini-batch SGD."
+    },
+    "evaluate_py": {
+      "status": "PASS_AUDITED",
+      "findings": "Computes confusion matrix, macro/weighted precision, recall, F1, and weak class tracking in pure NumPy. Fully compatible with 49 classes."
+    },
+    "export_model_to_frontend_py": {
+      "status": "PASS_AUDITED",
+      "findings": "Exports W (758, 49), b (49), scaler_mean (758), scaler_scale (758), classes (49), and labels (49) to frontend/public/models/sign_classifier.json. Verified 100% numerical parity."
+    },
+    "sign_classifier_ts": {
+      "status": "PASS_AUDITED",
+      "findings": "TypeScript inference engine at frontend/src/utils/signClassifier.ts implements 4-stage rejection pipeline: Gate 1 (Presence >= 0.20), Gate 2 (Motion >= 0.05), Gate 3 (Confidence >= 0.45), Gate 4 (Temporal Debouncer >= 2 frames). Matrix-vector dot product runs in < 0.05 ms."
+    }
+  },
+  "candidate_architectures": [
+    {
+      "model_id": "M1_SOFTMAX_LOGISTIC_REGRESSION",
+      "model_name": "Softmax Logistic Regression (L2 Regularized)",
+      "family": "Linear / Probabilistic",
+      "tier": "Tier 1 (Primary Baseline)",
+      "priority": 1,
+      "hyperparameter_grid": "learning_rate: [0.01, 0.05, 0.1]; l2_reg: [1e-5, 1e-4, 1e-3, 1e-2]; max_epochs: [300, 500]; batch_size: [16, 32, 64]",
+      "parameter_count": 37191,
+      "param_breakdown": "W: 758x49 (37,142) + b: 49",
+      "feature_dim": 758,
+      "standardization": "StandardScaler (mean=0, std=1, fitted on train)",
+      "overfitting_risk": "Moderate-Low (L2 weight decay penalizes large weights in p > n regime)",
+      "training_complexity": "Low (< 5s runtime in pure NumPy via mini-batch SGD / L-BFGS)",
+      "frontend_compatibility": "100% Drop-in Compatible (exact match with existing signClassifier.ts)",
+      "est_browser_latency_ms": 0.05,
+      "est_export_size_kb": 298.5,
+      "recommendation": "Strongly Recommended (Historical benchmark: 74.3% with leakage; establishes new un-leaked gold standard)"
+    },
+    {
+      "model_id": "M2_NEAREST_CENTROID_EUCLIDEAN",
+      "model_name": "Nearest Centroid Classifier (Euclidean)",
+      "family": "Prototype / Geometric",
+      "tier": "Tier 1 (Inductive Bias Baseline)",
+      "priority": 2,
+      "hyperparameter_grid": "metric: ['euclidean']; shrinkage: [None]",
+      "parameter_count": 37142,
+      "param_breakdown": "Centroids: 49x758 (37,142)",
+      "feature_dim": 758,
+      "standardization": "StandardScaler (mean=0, std=1, fitted on train)",
+      "overfitting_risk": "Zero (Zero hyperparameters, rigid spherical class prototype assumption)",
+      "training_complexity": "Negligible (< 10ms runtime, single-pass class-wise vector mean)",
+      "frontend_compatibility": "Fully Compatible (requires simple Euclidean distance comparison in TypeScript)",
+      "est_browser_latency_ms": 0.04,
+      "est_export_size_kb": 296.0,
+      "recommendation": "Mandatory Benchmark (Tests whether simple class centroids match or exceed linear hyperplanes in high dims)"
+    },
+    {
+      "model_id": "M3_NEAREST_CENTROID_COSINE",
+      "model_name": "Nearest Centroid Classifier (Cosine / Normalized)",
+      "family": "Prototype / Geometric",
+      "tier": "Tier 1 (Inductive Bias Baseline)",
+      "priority": 3,
+      "hyperparameter_grid": "metric: ['cosine']; normalize: [True]",
+      "parameter_count": 37142,
+      "param_breakdown": "Centroids: 49x758 (37,142)",
+      "feature_dim": 758,
+      "standardization": "StandardScaler + L2 Unit Normalization (per-vector)",
+      "overfitting_risk": "Zero (Invariant to feature magnitude, focuses purely on geometric angle)",
+      "training_complexity": "Negligible (< 10ms runtime, unit-normalized centroid averaging)",
+      "frontend_compatibility": "Fully Compatible (computes dot product of unit-normalized vector with 49 unit centroids)",
+      "est_browser_latency_ms": 0.04,
+      "est_export_size_kb": 296.0,
+      "recommendation": "Highly Recommended (Cosine distance often outperforms Euclidean distance in 758-dim feature spaces)"
+    },
+    {
+      "model_id": "M4_LINEAR_SVM_OVR",
+      "model_name": "Linear Support Vector Machine (One-vs-Rest Hinge)",
+      "family": "Max-Margin Linear",
+      "tier": "Tier 1 (Max-Margin Linear)",
+      "priority": 4,
+      "hyperparameter_grid": "C: [0.01, 0.1, 1.0, 10.0]; loss: ['squared_hinge', 'hinge']; max_iter: [1000]",
+      "parameter_count": 37191,
+      "param_breakdown": "W: 758x49 (37,142) + b: 49",
+      "feature_dim": 758,
+      "standardization": "StandardScaler (mean=0, std=1, fitted on train)",
+      "overfitting_risk": "Low-Moderate (Max-margin optimization resists overfitting in p > n regime via margin slack control)",
+      "training_complexity": "Low (< 10s runtime in pure NumPy via subgradient descent or Pegasos)",
+      "frontend_compatibility": "100% Drop-in Compatible (decision function is identical: W^T * z + b; calibrated via temperature softmax)",
+      "est_browser_latency_ms": 0.05,
+      "est_export_size_kb": 298.5,
+      "recommendation": "Strongly Recommended (Structural risk minimization theoretically superior to cross-entropy in sparse/high-dim data)"
+    },
+    {
+      "model_id": "M5_SMALL_MLP_1LAYER",
+      "model_name": "Small Multi-Layer Perceptron (1 Hidden Layer, 128 units)",
+      "family": "Feed-Forward Neural Network",
+      "tier": "Tier 2 (Non-Linear Exploratory)",
+      "priority": 5,
+      "hyperparameter_grid": "hidden_units: [64, 128]; activation: ['relu']; l2_reg: [1e-4, 1e-3, 1e-2]; dropout: [0.3, 0.5]; lr: [0.001, 0.005]",
+      "parameter_count": 103473,
+      "param_breakdown": "W1: 758x128 (97,024) + b1: 128 + W2: 128x49 (6,272) + b2: 49",
+      "feature_dim": 758,
+      "standardization": "StandardScaler (mean=0, std=1, fitted on train)",
+      "overfitting_risk": "High (103k parameters vs 631 samples; requires strong dropout + weight decay + early stopping on val loss)",
+      "training_complexity": "Moderate (~30-60s in pure NumPy with Adam optimizer and mini-batches)",
+      "frontend_compatibility": "Feasible (requires updating TypeScript inference to execute one hidden layer matrix multiply + ReLU, ~20 lines TS)",
+      "est_browser_latency_ms": 0.12,
+      "est_export_size_kb": 820.0,
+      "recommendation": "Exploratory Candidate (Evaluate if non-linear boundary capture offsets parameter overfitting risk)"
+    },
+    {
+      "model_id": "M6_KNN_COSINE",
+      "model_name": "k-Nearest Neighbors (Cosine Metric, k=3,5)",
+      "family": "Instance-Based Non-Parametric",
+      "tier": "Tier 3 (Reference Baseline Only)",
+      "priority": 6,
+      "hyperparameter_grid": "n_neighbors: [1, 3, 5]; metric: ['cosine', 'euclidean']; weights: ['uniform', 'distance']",
+      "parameter_count": 478298,
+      "param_breakdown": "All training vectors stored: 631x758 floats",
+      "feature_dim": 758,
+      "standardization": "StandardScaler (mean=0, std=1, fitted on train)",
+      "overfitting_risk": "Moderate (k=1 memorizes training set; k=5 subject to dimensional sparsity)",
+      "training_complexity": "Zero (lazy learner; instantaneous fit)",
+      "frontend_compatibility": "Sub-optimal for Edge (requires shipping 1.9MB training dataset to browser; 631 dot products per video frame)",
+      "est_browser_latency_ms": 8.5,
+      "est_export_size_kb": 1950.0,
+      "recommendation": "Reference Benchmark Only (Useful for theoretical upper bound on local neighborhood similarity; not for production)"
+    },
+    {
+      "model_id": "M7_RBF_KERNEL_SVM",
+      "model_name": "RBF Kernel Support Vector Machine",
+      "family": "Kernel Method",
+      "tier": "Tier 3 (Impractical for Browser Edge)",
+      "priority": 7,
+      "hyperparameter_grid": "C: [0.1, 1.0, 10.0]; gamma: ['scale', 0.001, 0.01]",
+      "parameter_count": 250000,
+      "param_breakdown": "N_sv support vectors x 758 floats + dual coefficients (approx 300-500 SVs)",
+      "feature_dim": 758,
+      "standardization": "StandardScaler (mean=0, std=1, fitted on train)",
+      "overfitting_risk": "High in small samples without exhaustive gamma cross-validation",
+      "training_complexity": "High in pure NumPy (requires quadratic programming / SMO solver implementation)",
+      "frontend_compatibility": "Incompatible / High Latency (evaluating non-linear exponential kernel across hundreds of SVs in JavaScript loop)",
+      "est_browser_latency_ms": 15.0,
+      "est_export_size_kb": 1200.0,
+      "recommendation": "Not Recommended for Deployment (High client computational overhead; unsuited for 30fps real-time inference)"
+    }
+  ],
+  "experimental_protocol": {
+    "scaling_protocol": "StandardScaler fit STRICTLY on train.npz (N=631). Scaler parameters (mean_, scale_) frozen and applied to transform val.npz and test.npz without re-fitting.",
+    "tuning_protocol": "All hyperparameter selection and candidate model checkpoint selection performed EXCLUSIVELY against val.npz (N=142). Primary metric: Validation Macro F1. Secondary metric: Validation Accuracy.",
+    "test_holdout_protocol": "test.npz (N=142) remains 100% FROZEN and UNTOUCHED throughout model exploration and tuning. Evaluated ONCE on winning models in Phase 8B.6B.",
+    "statistical_caveats": {
+      "n_test": 142,
+      "samples_per_class_test": "44 classes with 3 samples, 5 classes with 2 samples",
+      "quantization_effect": "A single classification error on a 3-sample class causes a 33.3% swing in recall. On a 2-sample class, a 50.0% swing.",
+      "global_confidence_interval": "At 75% accuracy, 95% Wilson score interval is [67.3%, 81.3%] (SE = 3.63%). Small differences between models within 3% are not statistically significant."
+    },
+    "generalization_scope": "Rigorously cross-session and take-independent (0 session burst overlap, 0 within-class possible-signer overlap). NOT certified subject-independent (signer unknown for 62.6% of raw dataset)."
+  },
+  "deliverable_verification": {
+    "csv_manifest": "D:\\SignBridgeAI\\ai-training\\data\\phase8b6a_audit\\phase8b6a_model_comparison_plan.csv",
+    "json_manifest": "D:\\SignBridgeAI\\ai-training\\data\\phase8b6a_audit\\phase8b6a_training_readiness_report.json",
+    "markdown_report": "D:\\SignBridgeAI\\ai-training\\data\\phase8b6a_audit\\phase8b6a_training_readiness_report.md"
+  }
+}

@@ -1,0 +1,50 @@
+class_id,class_label,category,total_attempts,correct,incorrect,rejected,accepted,top1_accepted_acc_pct,end_to_end_acc_pct,rejection_rate_pct
+0,1.bird,Single-Hand,3,2,1,0,3,66.67,66.67,0.0
+1,10.youareperfect,Compound,3,3,0,0,3,100.0,100.0,0.0
+2,11.monsoon,Dual-Hand,3,1,1,1,2,50.0,33.33,33.33
+3,12.afternoon,Single-Hand,3,1,1,1,2,50.0,33.33,33.33
+4,13.angry,Single-Hand,3,0,2,1,2,0.0,0.0,33.33
+5,14.bad,Single-Hand,3,3,0,0,3,100.0,100.0,0.0
+6,15.boy,Single-Hand,3,1,1,1,2,50.0,33.33,33.33
+7,16.eat,Facial-Proximity,3,0,2,1,2,0.0,0.0,33.33
+8,17.friend,Two-Hand Occlusion,3,0,0,3,0,0.0,0.0,100.0
+9,18.drinking,Facial-Proximity,3,1,1,1,2,50.0,33.33,33.33
+10,19.girl,Single-Hand,3,3,0,0,3,100.0,100.0,0.0
+11,2.black,Facial-Proximity,3,0,2,1,2,0.0,0.0,33.33
+12,20.brother,Dual-Hand,3,1,1,1,2,50.0,33.33,33.33
+13,21.good,Low-Motion Static,3,0,2,1,2,0.0,0.0,33.33
+14,22.father,Single-Hand,3,1,1,1,2,50.0,33.33,33.33
+15,23.evening,Single-Hand,3,3,0,0,3,100.0,100.0,0.0
+16,24.help,Dual-Hand,3,2,1,0,3,66.67,66.67,0.0
+17,25.mother,Single-Hand,3,0,2,1,2,0.0,0.0,33.33
+18,26.NAME,Dual-Hand,3,2,1,0,3,66.67,66.67,0.0
+19,27.Night,Dual-Hand,3,3,0,0,3,100.0,100.0,0.0
+20,28.Music,Dual-Hand,3,3,0,0,3,100.0,100.0,0.0
+21,29.nose,Facial-Proximity,3,2,0,1,2,100.0,66.67,33.33
+22,3.cat,Single-Hand,3,1,1,1,2,50.0,33.33,33.33
+23,30.sleep,Facial-Proximity,3,2,1,0,3,66.67,66.67,0.0
+24,31.sit,Dual-Hand,3,3,0,0,3,100.0,100.0,0.0
+25,32.sorry,Single-Hand,3,3,0,0,3,100.0,100.0,0.0
+26,33.stand,Dual-Hand,3,1,1,1,2,50.0,33.33,33.33
+27,34.stop,Low-Motion Static,3,2,0,1,2,100.0,66.67,33.33
+28,35.student,Dual-Hand,3,1,1,1,2,50.0,33.33,33.33
+29,36.study,Dual-Hand,3,3,0,0,3,100.0,100.0,0.0
+30,37.teacher,Dual-Hand,3,1,1,1,2,50.0,33.33,33.33
+31,38.thankyou,Single-Hand,3,0,2,1,2,0.0,0.0,33.33
+32,39.today,Dual-Hand,3,1,1,1,2,50.0,33.33,33.33
+33,4.cow,Single-Hand,3,0,2,1,2,0.0,0.0,33.33
+34,40.tommorow,Single-Hand,3,3,0,0,3,100.0,100.0,0.0
+35,41.welcome,Dual-Hand,3,3,0,0,3,100.0,100.0,0.0
+36,42.work,Two-Hand Occlusion,3,0,2,1,2,0.0,0.0,33.33
+37,43.yesterday,Single-Hand,3,1,1,1,2,50.0,33.33,33.33
+38,44.teeth,Facial-Proximity,3,0,3,0,3,0.0,0.0,0.0
+39,45.hand,Low-Motion Static,3,2,0,1,2,100.0,66.67,33.33
+40,46.write,Dual-Hand,3,3,0,0,3,100.0,100.0,0.0
+41,47.umberlla,Two-Hand Occlusion,3,0,2,1,2,0.0,0.0,33.33
+42,48.ring,Dual-Hand,3,3,0,0,3,100.0,100.0,0.0
+43,5.dog,Single-Hand,3,0,2,1,2,0.0,0.0,33.33
+44,50.power,Dual-Hand,3,3,0,0,3,100.0,100.0,0.0
+45,6.fish,Single-Hand,3,1,1,1,2,50.0,33.33,33.33
+46,7.goodmorning,Compound,3,0,3,0,3,0.0,0.0,0.0
+47,8.grey,Single-Hand,3,0,2,1,2,0.0,0.0,33.33
+48,9.hello,Single-Hand,3,3,0,0,3,100.0,100.0,0.0

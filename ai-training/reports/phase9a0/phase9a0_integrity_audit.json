@@ -1,0 +1,120 @@
+{
+  "audit_metadata": {
+    "phase": "PHASE 9A.0: PHASE 8B.9 EVIDENCE INTEGRITY & EXPERIMENT READINESS AUDIT",
+    "audited_phase": "Phase 8B.9",
+    "audit_timestamp": "2026-11-25T09:11:47.029858+00:00",
+    "final_verdict": "CONDITIONAL PASS",
+    "verdict_rationale": "Underlying trial evidence reconciles with zero mathematical discrepancies (147/147 valid attempts, 72 correct, E2E accuracy 48.98%, Accepted accuracy 61.54%). However, experimental condition confounding is severe (lighting, distance, and tempo were bundled in 3 deterministic profiles rather than orthogonally varied). The benchmark is fully usable for class-level error isolation and architecture comparison, but single-variable environmental causality cannot be claimed without factorial re-testing."
+  },
+  "audit_checks": {
+    "trial_log_sample_count": {
+      "expected": 147,
+      "observed": 147,
+      "status": "PASS"
+    },
+    "per_class_attempt_coverage": {
+      "expected_per_class": 3,
+      "min_observed": 3,
+      "max_observed": 3,
+      "unique_classes": 49,
+      "status": "PASS"
+    },
+    "aggregate_metric_reconciliation": {
+      "discrepancies_found": 0,
+      "status": "PASS"
+    },
+    "per_class_metric_reconciliation": {
+      "discrepancies_found": 0,
+      "status": "PASS"
+    },
+    "confusion_matrix_reconciliation": {
+      "cell_differences": 0,
+      "status": "PASS"
+    },
+    "experimental_design_independence": {
+      "orthogonal_variation": false,
+      "confounded_triplets": [
+        "Attempt 1: Normal Indoor (300-500 lux) == Standard (~1.0m) == Normal Tempo (1.5-2.5s) == Centered",
+        "Attempt 2: Low Ambient (<100 lux) == Close (~0.5m) == Fast / Quick (<1.0s) == Slightly Off-Center",
+        "Attempt 3: Direct / Harsh Lighting == Far (~1.5m) == Sustained Hold (>3.0s) == Centered"
+      ],
+      "status": "CONFOUNDED_LIMITATION_NOTED"
+    },
+    "hand_tracking_definition_clarification": {
+      "at_least_one_hand_detected_rate": 100.0,
+      "dual_hand_tracking_success_rate_on_two_hand_signs": 0.0,
+      "finding": "The reported '0 hand-tracking failures' signifies at-least-one-hand detection. MediaPipe suffered 100% secondary hand tracking loss on two-hand occlusion signs (friend, work, umbrella), causing dual presence collapse to 5-17%."
+    }
+  },
+  "vocabulary_tiers": {
+    "reliable_count": 22,
+    "intermediate_count": 13,
+    "unreliable_count": 14
+  },
+  "ranked_experiments": [
+    {
+      "rank": 1,
+      "name": "Adaptive Motion Gate for Static Signs",
+      "target_classes": [
+        "21.good",
+        "34.stop",
+        "45.hand"
+      ],
+      "requires_retraining": false,
+      "schema_change": false,
+      "primary_metric": "0% false rejections on sustained holds while maintaining >95% idle suppression"
+    },
+    {
+      "rank": 2,
+      "name": "M5 Non-Linear Classifier (MLP Checkpoint Evaluation)",
+      "target_classes": [
+        "16.eat",
+        "2.black",
+        "44.teeth",
+        "21.good vs 17.friend"
+      ],
+      "requires_retraining": false,
+      "schema_change": false,
+      "primary_metric": "Resolve linear hyperplane XOR collisions and facial proximity collapse; client inference <20ms"
+    },
+    {
+      "rank": 3,
+      "name": "Two-Hand Tracking & Gate 1 Presence Relaxation",
+      "target_classes": [
+        "17.friend",
+        "42.work",
+        "47.umberlla"
+      ],
+      "requires_retraining": false,
+      "schema_change": false,
+      "primary_metric": "Dual presence on two-hand contact signs >= 35%, eliminating Gate 1 false rejections"
+    },
+    {
+      "rank": 4,
+      "name": "Chronological Temporal Sub-Window Features",
+      "target_classes": [
+        "7.goodmorning",
+        "10.youareperfect",
+        "20.brother"
+      ],
+      "requires_retraining": true,
+      "schema_change": true,
+      "primary_metric": "7.goodmorning test recall >= 50% with <20% false positive collapse into 9.hello"
+    },
+    {
+      "rank": 5,
+      "name": "Facial-Proximity Landmark Offset Representation",
+      "target_classes": [
+        "16.eat",
+        "2.black",
+        "25.mother",
+        "4.cow",
+        "44.teeth",
+        "8.grey"
+      ],
+      "requires_retraining": true,
+      "schema_change": true,
+      "primary_metric": "Disentangle teeth/black from nose tip; achieve >40% recall across facial cluster"
+    }
+  ]
+}

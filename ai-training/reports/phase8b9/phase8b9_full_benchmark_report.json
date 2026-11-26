@@ -1,0 +1,332 @@
+{
+  "metadata": {
+    "phase": "PHASE 8B.9: FULL 49-CLASS HUMAN WEBCAM BASELINE EVALUATION",
+    "generated_at": "2026-11-25T09:02:05.405149+00:00",
+    "final_verdict": "PASS",
+    "evaluator_participant": "P01",
+    "participant_coverage_limitation_noted": true,
+    "target_model": "frontend/public/models/sign_classifier.json",
+    "model_architecture": "M1 \u2014 L2-Regularized Softmax Logistic Regression (49 classes, 758 features)",
+    "camera_device": "USB2.0 HD UVC WebCam",
+    "evaluation_route": "http://localhost:4173/app/evaluate"
+  },
+  "aggregate_metrics": {
+    "total_planned_attempts": 147,
+    "total_completed_attempts": 147,
+    "invalid_attempts": 0,
+    "correct_recognitions": 72,
+    "incorrect_recognitions": 45,
+    "rejected_attempts": 30,
+    "undetected_attempts": 0,
+    "accepted_attempts": 117,
+    "top3_correct_recognitions": 120,
+    "end_to_end_accuracy_percent": 48.98,
+    "top1_accepted_accuracy_percent": 61.54,
+    "top3_overall_accuracy_percent": 81.63,
+    "rejection_rate_percent": 20.41,
+    "median_latency_ms": 967,
+    "p90_latency_ms": 1041,
+    "p95_latency_ms": 1050
+  },
+  "rejection_breakdown": {
+    "presence_too_low": 5,
+    "motion_stationary": 3,
+    "confidence_low": 22
+  },
+  "condition_summary": {
+    "lighting_condition": {
+      "Direct / Harsh Lighting": {
+        "attempts": 49,
+        "correct": 15,
+        "rejected": 4,
+        "accepted": 45,
+        "e2e_acc_pct": 30.61,
+        "accepted_acc_pct": 33.33,
+        "rejection_rate_pct": 8.16
+      },
+      "Low Ambient (<100 lux)": {
+        "attempts": 49,
+        "correct": 22,
+        "rejected": 14,
+        "accepted": 35,
+        "e2e_acc_pct": 44.9,
+        "accepted_acc_pct": 62.86,
+        "rejection_rate_pct": 28.57
+      },
+      "Normal Indoor (300-500 lux)": {
+        "attempts": 49,
+        "correct": 35,
+        "rejected": 12,
+        "accepted": 37,
+        "e2e_acc_pct": 71.43,
+        "accepted_acc_pct": 94.59,
+        "rejection_rate_pct": 24.49
+      }
+    },
+    "camera_distance": {
+      "Close (~0.5m)": {
+        "attempts": 49,
+        "correct": 22,
+        "rejected": 14,
+        "accepted": 35,
+        "e2e_acc_pct": 44.9,
+        "accepted_acc_pct": 62.86,
+        "rejection_rate_pct": 28.57
+      },
+      "Far (~1.5m)": {
+        "attempts": 49,
+        "correct": 15,
+        "rejected": 4,
+        "accepted": 45,
+        "e2e_acc_pct": 30.61,
+        "accepted_acc_pct": 33.33,
+        "rejection_rate_pct": 8.16
+      },
+      "Standard (~1.0m)": {
+        "attempts": 49,
+        "correct": 35,
+        "rejected": 12,
+        "accepted": 37,
+        "e2e_acc_pct": 71.43,
+        "accepted_acc_pct": 94.59,
+        "rejection_rate_pct": 24.49
+      }
+    },
+    "signing_speed": {
+      "Fast / Quick (<1.0s)": {
+        "attempts": 49,
+        "correct": 22,
+        "rejected": 14,
+        "accepted": 35,
+        "e2e_acc_pct": 44.9,
+        "accepted_acc_pct": 62.86,
+        "rejection_rate_pct": 28.57
+      },
+      "Normal Tempo (1.5-2.5s)": {
+        "attempts": 49,
+        "correct": 35,
+        "rejected": 12,
+        "accepted": 37,
+        "e2e_acc_pct": 71.43,
+        "accepted_acc_pct": 94.59,
+        "rejection_rate_pct": 24.49
+      },
+      "Sustained Hold (>3.0s)": {
+        "attempts": 49,
+        "correct": 15,
+        "rejected": 4,
+        "accepted": 45,
+        "e2e_acc_pct": 30.61,
+        "accepted_acc_pct": 33.33,
+        "rejection_rate_pct": 8.16
+      }
+    },
+    "hand_positioning": {
+      "Centered": {
+        "attempts": 98,
+        "correct": 50,
+        "rejected": 16,
+        "accepted": 82,
+        "e2e_acc_pct": 51.02,
+        "accepted_acc_pct": 60.98,
+        "rejection_rate_pct": 16.33
+      },
+      "Slightly Off-Center": {
+        "attempts": 49,
+        "correct": 22,
+        "rejected": 14,
+        "accepted": 35,
+        "e2e_acc_pct": 44.9,
+        "accepted_acc_pct": 62.86,
+        "rejection_rate_pct": 28.57
+      }
+    }
+  },
+  "reliable_classes": [
+    "1.bird",
+    "10.youareperfect",
+    "14.bad",
+    "19.girl",
+    "23.evening",
+    "24.help",
+    "26.NAME",
+    "27.Night",
+    "28.Music",
+    "29.nose",
+    "30.sleep",
+    "31.sit",
+    "32.sorry",
+    "34.stop",
+    "36.study",
+    "40.tommorow",
+    "41.welcome",
+    "45.hand",
+    "46.write",
+    "48.ring",
+    "50.power",
+    "9.hello"
+  ],
+  "intermediate_classes": [
+    "11.monsoon",
+    "12.afternoon",
+    "15.boy",
+    "18.drinking",
+    "20.brother",
+    "22.father",
+    "3.cat",
+    "33.stand",
+    "35.student",
+    "37.teacher",
+    "39.today",
+    "43.yesterday",
+    "6.fish"
+  ],
+  "unreliable_classes": [
+    "13.angry",
+    "16.eat",
+    "17.friend",
+    "2.black",
+    "21.good",
+    "25.mother",
+    "38.thankyou",
+    "4.cow",
+    "42.work",
+    "44.teeth",
+    "47.umberlla",
+    "5.dog",
+    "7.goodmorning",
+    "8.grey"
+  ],
+  "diagnostic_classes_audit": {
+    "17.friend": {
+      "class_id": 8,
+      "class_label": "17.friend",
+      "category": "Two-Hand Occlusion",
+      "total_attempts": 3,
+      "correct": 0,
+      "incorrect": 0,
+      "rejected": 3,
+      "accepted": 0,
+      "top1_accepted_acc_pct": 0.0,
+      "end_to_end_acc_pct": 0.0,
+      "rejection_rate_pct": 100.0
+    },
+    "21.good": {
+      "class_id": 13,
+      "class_label": "21.good",
+      "category": "Low-Motion Static",
+      "total_attempts": 3,
+      "correct": 0,
+      "incorrect": 2,
+      "rejected": 1,
+      "accepted": 2,
+      "top1_accepted_acc_pct": 0.0,
+      "end_to_end_acc_pct": 0.0,
+      "rejection_rate_pct": 33.33
+    },
+    "29.nose": {
+      "class_id": 21,
+      "class_label": "29.nose",
+      "category": "Facial-Proximity",
+      "total_attempts": 3,
+      "correct": 2,
+      "incorrect": 0,
+      "rejected": 1,
+      "accepted": 2,
+      "top1_accepted_acc_pct": 100.0,
+      "end_to_end_acc_pct": 66.67,
+      "rejection_rate_pct": 33.33
+    },
+    "7.goodmorning": {
+      "class_id": 46,
+      "class_label": "7.goodmorning",
+      "category": "Compound",
+      "total_attempts": 3,
+      "correct": 0,
+      "incorrect": 3,
+      "rejected": 0,
+      "accepted": 3,
+      "top1_accepted_acc_pct": 0.0,
+      "end_to_end_acc_pct": 0.0,
+      "rejection_rate_pct": 0.0
+    },
+    "9.hello": {
+      "class_id": 48,
+      "class_label": "9.hello",
+      "category": "Single-Hand",
+      "total_attempts": 3,
+      "correct": 3,
+      "incorrect": 0,
+      "rejected": 0,
+      "accepted": 3,
+      "top1_accepted_acc_pct": 100.0,
+      "end_to_end_acc_pct": 100.0,
+      "rejection_rate_pct": 0.0
+    },
+    "42.work": {
+      "class_id": 36,
+      "class_label": "42.work",
+      "category": "Two-Hand Occlusion",
+      "total_attempts": 3,
+      "correct": 0,
+      "incorrect": 2,
+      "rejected": 1,
+      "accepted": 2,
+      "top1_accepted_acc_pct": 0.0,
+      "end_to_end_acc_pct": 0.0,
+      "rejection_rate_pct": 33.33
+    },
+    "47.umberlla": {
+      "class_id": 41,
+      "class_label": "47.umberlla",
+      "category": "Two-Hand Occlusion",
+      "total_attempts": 3,
+      "correct": 0,
+      "incorrect": 2,
+      "rejected": 1,
+      "accepted": 2,
+      "top1_accepted_acc_pct": 0.0,
+      "end_to_end_acc_pct": 0.0,
+      "rejection_rate_pct": 33.33
+    },
+    "16.eat": {
+      "class_id": 7,
+      "class_label": "16.eat",
+      "category": "Facial-Proximity",
+      "total_attempts": 3,
+      "correct": 0,
+      "incorrect": 2,
+      "rejected": 1,
+      "accepted": 2,
+      "top1_accepted_acc_pct": 0.0,
+      "end_to_end_acc_pct": 0.0,
+      "rejection_rate_pct": 33.33
+    },
+    "44.teeth": {
+      "class_id": 38,
+      "class_label": "44.teeth",
+      "category": "Facial-Proximity",
+      "total_attempts": 3,
+      "correct": 0,
+      "incorrect": 3,
+      "rejected": 0,
+      "accepted": 3,
+      "top1_accepted_acc_pct": 0.0,
+      "end_to_end_acc_pct": 0.0,
+      "rejection_rate_pct": 0.0
+    },
+    "34.stop": {
+      "class_id": 27,
+      "class_label": "34.stop",
+      "category": "Low-Motion Static",
+      "total_attempts": 3,
+      "correct": 2,
+      "incorrect": 0,
+      "rejected": 1,
+      "accepted": 2,
+      "top1_accepted_acc_pct": 100.0,
+      "end_to_end_acc_pct": 66.67,
+      "rejection_rate_pct": 33.33
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "metadata": {
+    "audit_phase": "PHASE_8B.5C",
+    "title": "Independent Split Artifact Integrity Audit",
+    "timestamp": "2026-11-25T12:50:00+05:30",
+    "mode": "READ_ONLY",
+    "auditor": "SIGNBRIDGE AI Independent Audit Agent"
+  },
+  "verdict": {
+    "decision": "PASS",
+    "summary": "All required integrity, disjointness, group-isolation, class-coverage, and reproducibility checks passed with 100% precision. Split artifacts are trustworthy and ready for Phase 8B.6 model training."
+  },
+  "npz_artifacts_inspection": {
+    "train": {
+      "keys": [
+        "X",
+        "y",
+        "sample_ids",
+        "video_names",
+        "class_names"
+      ],
+      "sample_count": 631,
+      "X_shape": [
+        631,
+        758
+      ],
+      "X_dtype": "float32",
+      "y_shape": [
+        631
+      ],
+      "y_dtype": "int64",
+      "nan_count": 0,
+      "inf_count": 0,
+      "min_val": -0.22048354148864746,
+      "max_val": 9.41480541229248,
+      "mean_val": 0.2940608263015747
+    },
+    "val": {
+      "keys": [
+        "X",
+        "y",
+        "sample_ids",
+        "video_names",
+        "class_names"
+      ],
+      "sample_count": 142,
+      "X_shape": [
+        142,
+        758
+      ],
+      "X_dtype": "float32",
+      "y_shape": [
+        142
+      ],
+      "y_dtype": "int64",
+      "nan_count": 0,
+      "inf_count": 0,
+      "min_val": -0.17313209176063538,
+      "max_val": 8.553162574768066,
+      "mean_val": 0.308157742023468
+    },
+    "test": {
+      "keys": [
+        "X",
+        "y",
+        "sample_ids",
+        "video_names",
+        "class_names"
+      ],
+      "sample_count": 142,
+      "X_shape": [
+        142,
+        758
+      ],
+      "X_dtype": "float32",
+      "y_shape": [
+        142
+      ],
+      "y_dtype": "int64",
+      "nan_count": 0,
+      "inf_count": 0,
+      "min_val": -0.12166740745306015,
+      "max_val": 7.020596504211426,
+      "mean_val": 0.2726655900478363
+    }
+  },
+  "complete_coverage_verification": {
+    "total_samples": 915,
+    "clean_dataset_match": true,
+    "exact_feature_equality": true,
+    "exact_label_match": true,
+    "exact_sha256_match": true,
+    "duplicate_samples_across_splits": 0
+  },
+  "group_isolation_verification": {
+    "total_session_bursts": 282,
+    "train_bursts": 184,
+    "val_bursts": 49,
+    "test_bursts": 49,
+    "leaked_groups_count": 0,
+    "isolation_status": "ZERO_GROUP_LEAKAGE"
+  },
+  "possible_signer_verification": {
+    "Signer_Krishnaraj_within_class_overlap": 0,
+    "Signer_Manideep_within_class_overlap": 0,
+    "Signer_Nachiketh_within_class_overlap": 0,
+    "generalization_qualification": "Cross-session / take-independent evaluation under audited grouping assumptions. Not certified subject-independent evaluation due to unannotated 62.6% dataset portion."
+  },
+  "class_distribution_verification": {
+    "train_classes": 49,
+    "val_classes": 49,
+    "test_classes": 49,
+    "val_min_samples": 2,
+    "test_min_samples": 2,
+    "classes_under_2_val_or_test": 0,
+    "all_classes_sum_to_915": true
+  },
+  "reproducibility_verification": {
+    "seed": 42,
+    "verified_in_memory": true,
+    "byte_for_byte_identical": true
+  }
+}

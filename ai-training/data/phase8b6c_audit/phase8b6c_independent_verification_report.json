@@ -1,0 +1,176 @@
+{
+  "metadata": {
+    "phase": "PHASE 8B.6C: CHAMPION MODEL INTEGRATION READINESS & INDEPENDENT VERIFICATION AUDIT",
+    "generated_at": "2026-11-25T07:50:35.364982+00:00",
+    "final_verdict": "PASS",
+    "verdict_summary": "Approved for separate integration phase. Champion model verified with 100% TypeScript parity across all 142 held-out test samples. 49-class label mapping confirmed 100% identical across all sources.",
+    "champion_model": "M1 \u2014 L2-Regularized Softmax Logistic Regression",
+    "champion_checkpoint": "models/phase8b6b/m1_softmax_regression.npz",
+    "champion_json_export": "models/phase8b6b/phase8b6b_champion.json",
+    "competitive_alternative": "M5 \u2014 Small MLP (128 units, Adam)",
+    "alternative_checkpoint": "models/phase8b6b/m5_small_mlp.npz"
+  },
+  "artifact_hashes": [
+    {
+      "artifact_name": "m1_checkpoint",
+      "file_path": "ai-training\\models\\phase8b6b\\m1_softmax_regression.npz",
+      "sha256": "7bfcfca04bacffe5b2c30638b11baee80c8bbdc458b82d13885c24c9c25d46cb",
+      "size_bytes": "145516"
+    },
+    {
+      "artifact_name": "m2_checkpoint",
+      "file_path": "ai-training\\models\\phase8b6b\\m2_nearest_centroid_euclidean.npz",
+      "sha256": "f5162505d5770bff37b9a5a1e4de40102c3dc3d4babda2398a892a13bfae60fa",
+      "size_bytes": "144397"
+    },
+    {
+      "artifact_name": "m3_checkpoint",
+      "file_path": "ai-training\\models\\phase8b6b\\m3_nearest_centroid_cosine.npz",
+      "sha256": "cec3be1705405f6e9c4f33e48de00ef58517f4c399ce4d8d35c18816bc54c62f",
+      "size_bytes": "144505"
+    },
+    {
+      "artifact_name": "m4_checkpoint",
+      "file_path": "ai-training\\models\\phase8b6b\\m4_linear_svm_ovr.npz",
+      "sha256": "176481c11d585c30cddfb0fc85370282a287819a00b03cb8624596f9532fd4ae",
+      "size_bytes": "145464"
+    },
+    {
+      "artifact_name": "m5_checkpoint",
+      "file_path": "ai-training\\models\\phase8b6b\\m5_small_mlp.npz",
+      "sha256": "6a7ed89a91890c7af8a02b41c236750aa2ae8a4d65c4d05596d5f18b56548c6f",
+      "size_bytes": "390817"
+    },
+    {
+      "artifact_name": "champion_json",
+      "file_path": "ai-training\\models\\phase8b6b\\phase8b6b_champion.json",
+      "sha256": "c8068a3fedd85645d736d16ebde450bd442970784adba40fdacb8970a4535274",
+      "size_bytes": "821217"
+    },
+    {
+      "artifact_name": "val_candidate_comparison",
+      "file_path": "ai-training\\reports\\phase8b6b\\val_candidate_comparison.json",
+      "sha256": "c9a856dd632bebc3cc0aaec30f56e64c5a3e15cc8b8f82a78cb4fa3ecb9d6efa",
+      "size_bytes": "2145"
+    },
+    {
+      "artifact_name": "candidate_comparison_csv",
+      "file_path": "ai-training\\reports\\phase8b6b\\candidate_comparison.csv",
+      "sha256": "46b18552d0f22137798e074a7d993d85096e4169dba2140627e4e59cc82231c8",
+      "size_bytes": "1094"
+    },
+    {
+      "artifact_name": "champion_test_confusion_matrix",
+      "file_path": "ai-training\\reports\\phase8b6b\\champion_test_confusion_matrix.csv",
+      "sha256": "bea567fe5930bc0641b97d698ca44dbc83ffa10ebb3e1311dfceaa8e88eef810",
+      "size_bytes": "5774"
+    },
+    {
+      "artifact_name": "champion_test_per_class_metrics",
+      "file_path": "ai-training\\reports\\phase8b6b\\champion_test_per_class_metrics.csv",
+      "sha256": "8f61e80e722d4ab6761371ec0b073d6c25d57fa4ed9729187de9099d7a2e2be4",
+      "size_bytes": "1789"
+    },
+    {
+      "artifact_name": "phase8b6b_training_report_json",
+      "file_path": "ai-training\\reports\\phase8b6b\\phase8b6b_training_report.json",
+      "sha256": "54c811eaccb6107458958cdf5667e2c5ff6df738e4cd7ec90558849c56e74d28",
+      "size_bytes": "21435"
+    },
+    {
+      "artifact_name": "phase8b6b_training_report_md",
+      "file_path": "ai-training\\reports\\phase8b6b\\phase8b6b_training_report.md",
+      "sha256": "9f004cdb231f27875270b4b9f367c0914615399126846284640e9ee47a520c07",
+      "size_bytes": "11248"
+    }
+  ],
+  "typescript_parity_audit": {
+    "auditTimestamp": "2026-11-25T07:48:28.370Z",
+    "totalSamplesEvaluated": 142,
+    "maxLogitDiff": 6.67572021484375e-06,
+    "meanLogitDiff": 4.3938063715776517e-07,
+    "maxProbDiff": 1.1026859283447266e-06,
+    "meanProbDiff": 1.1868231587553984e-08,
+    "maxScaledDiff": 4.5929293523983006e-07,
+    "top1Matches": 142,
+    "top1AgreementPercent": 100,
+    "top3Matches": 142,
+    "top3AgreementPercent": 100,
+    "mismatchesCount": 0,
+    "mismatches": [],
+    "latencyBenchmarking": {
+      "unit": "microseconds",
+      "meanLatencyUs": 146.3,
+      "p50LatencyUs": 111,
+      "p95LatencyUs": 224.4,
+      "p99LatencyUs": 522.2,
+      "meanLatencyMs": 0.146,
+      "p95LatencyMs": 0.224
+    },
+    "rejectionGatesVerification": {
+      "gate1_presence": true,
+      "gate2_motion": true,
+      "gate3_confidence": true,
+      "gate4_temporal_debouncer": true
+    },
+    "overallVerdict": "PASS"
+  },
+  "class_mapping_summary": {
+    "total_classes": 49,
+    "mismatches_found": 0,
+    "mapping_agreement_percent": 100.0,
+    "apparent_renaming_investigation": {
+      "finding": "RESOLVED_NARRATIVE_TYPO",
+      "explanation": "The alternate names (32.read, 45.where, 19.dress, 30.pen, 29.orange, 37.technology, 4.call, 46.which) were identified strictly as illustrative typographical strings in the markdown narrative text of the Phase 8B.6A/B report generator. An exhaustive audit of the actual datasets, NPZ splits, model checkpoints, label_mapping.json, and frontend production models confirms that ALL sources unanimously and consistently use the ground truth labels: 32.sorry, 45.hand, 19.girl, 30.sleep, 29.nose, 37.teacher, 4.cow, 46.write."
+    }
+  },
+  "model_reproduction_audit": {
+    "m1_softmax_regression": {
+      "reported_val_macro_f1": 0.5178,
+      "reproduced_val_macro_f1": 0.5178,
+      "reported_test_macro_f1": 0.4709,
+      "reproduced_test_macro_f1": 0.4709,
+      "reported_test_accuracy": 0.507,
+      "reproduced_test_accuracy": 0.507,
+      "reported_test_top3": 0.7113,
+      "reproduced_test_top3": 0.7113,
+      "status": "EXACT_REPRODUCTION_VERIFIED"
+    },
+    "m5_small_mlp": {
+      "reported_val_macro_f1": 0.4838,
+      "reproduced_val_macro_f1": 0.4838,
+      "reported_test_macro_f1": 0.4698,
+      "reproduced_test_macro_f1": 0.4698,
+      "reported_test_accuracy": 0.5,
+      "reproduced_test_accuracy": 0.5,
+      "reported_test_top3": 0.7606,
+      "reproduced_test_top3": 0.7606,
+      "status": "EXACT_REPRODUCTION_VERIFIED"
+    }
+  },
+  "frontend_compatibility_audit": {
+    "json_parsing": "PASS (1.61 ms load time, 801.97 KB footprint)",
+    "memory_representation": "PASS (Float32Array contiguous buffers, WTransposed shape 49x758)",
+    "latency_profile": {
+      "mean_latency_us": 146.3,
+      "p95_latency_us": 224.4,
+      "p99_latency_us": 522.2,
+      "evaluations_per_second": 6835
+    },
+    "rejection_gates_verified": {
+      "gate1_presence": true,
+      "gate2_motion": true,
+      "gate3_confidence": true,
+      "gate4_temporal_debouncer": true
+    },
+    "webcam_disclaimer": "Confirmed: Recorded-dataset parity does NOT prove live webcam recognition. Live performance depends on lighting, camera angle, and real-time hand framing."
+  },
+  "preservation_compliance": {
+    "production_sign_classifier_json_modified": false,
+    "production_sign_classifier_ts_modified": false,
+    "baseline_model_npz_modified": false,
+    "historical_evaluation_report_json_modified": false,
+    "raw_videos_modified": false,
+    "split_files_modified": false
+  }
+}

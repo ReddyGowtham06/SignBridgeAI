@@ -1,0 +1,82 @@
+# ==============================================================================
+# SIGNBRIDGE AI — Root .gitignore
+# ==============================================================================
+
+# Environment variables & secrets (preserve .env.example templates)
+.env
+.env.*
+!.env.example
+!**/.env.example
+
+# Private keys, certificates & credentials
+*.pem
+*.key
+*.p12
+*.pfx
+*credentials*.json
+*secret*.json
+
+# Node.js & Frontend build outputs
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+*.tsbuildinfo
+
+# Python virtual environments & caches
+.venv/
+venv/
+env/
+backend/.venv/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Local databases & logs
+*.db
+*.sqlite
+*.sqlite3
+*.log
+logs/
+
+# Raw training videos, large datasets, binary dumps & archives
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.npz
+*.npy
+*.pkl
+*.pt
+*.pth
+*.h5
+
+# Specific raw / intermediate dataset directories
+ai-training/data/staged_converted_movs/
+ai-training/data/raw_landmarks/
+ai-training/data/staged_raw_landmarks/
+ai-training/data/staged_clean_landmarks/
+ai-training/data/staged_clean_features/
+ai-training/data/processed/
+ai-training/data/staged_phase8b5b_split/
+ai-training/reports/*/backups/
+
+# OS & Editor artifacts
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo

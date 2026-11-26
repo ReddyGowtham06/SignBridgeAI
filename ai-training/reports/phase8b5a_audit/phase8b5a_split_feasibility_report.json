@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "audit_phase": "PHASE_8B.5A",
+    "title": "Read-Only Split Feasibility & Leakage-Aware Strategy Audit",
+    "timestamp": "2026-11-25T12:35:00+05:30",
+    "mode": "READ_ONLY",
+    "auditor": "SIGNBRIDGE AI Audit Agent"
+  },
+  "dataset_verification": {
+    "total_clean_samples": 915,
+    "num_classes": 49,
+    "feature_matrix_shape": [
+      915,
+      758
+    ],
+    "feature_dtype": "float32",
+    "nan_count": 0,
+    "inf_count": 0,
+    "unique_sha256_count": 915,
+    "min_class_samples": 15,
+    "max_class_samples": 21,
+    "mean_class_samples": 18.6734693877551,
+    "verification_status": "PASSED_100_PERCENT"
+  },
+  "signer_identity_audit": {
+    "category_A_confirmed_count": 0,
+    "category_A_confirmed_pct": 0.0,
+    "category_B_possible_count": 342,
+    "category_B_possible_pct": 37.37704918032787,
+    "category_C_unknown_count": 573,
+    "category_C_unknown_pct": 62.62295081967213,
+    "inferred_signers": {
+      "Unknown_Signer": 573,
+      "Signer_Nachiketh": 72,
+      "Signer_Krishnaraj": 133,
+      "Signer_Manideep": 137
+    },
+    "critical_signer_limitation": "No formal contributor metadata registry exists. 62.6% of samples have completely unknown signers. A pure subject-independent (leave-one-signer-out) split cannot be formed across all 49 classes."
+  },
+  "session_group_audit": {
+    "total_session_groups": 282,
+    "mean_group_size": 3.24468085106383,
+    "min_group_size": 1,
+    "max_group_size": 10,
+    "bursts_per_class_min": 4,
+    "bursts_per_class_max": 7,
+    "bursts_per_class_mean": 5.755102040816326,
+    "leakage_risk_evaluation": "Splitting individual takes from the same session burst across train and test causes severe environmental and identical-take memorization leakage."
+  },
+  "strategy_evaluation": {
+    "strategy_1_stratified_random": {
+      "name": "Stratified Random Sample-Level Split",
+      "leakage_risk": "CRITICAL_SESSION_LEAKAGE",
+      "class_coverage": "EXCELLENT",
+      "balance": "PERFECT",
+      "defensibility": "INDEFENSIBLE_FOR_DEPLOYMENT",
+      "verdict": "REJECTED"
+    },
+    "strategy_2_duplicate_group_aware": {
+      "name": "Duplicate-Group-Aware Split",
+      "leakage_risk": "HIGH_SESSION_LEAKAGE",
+      "class_coverage": "EXCELLENT",
+      "balance": "PERFECT",
+      "defensibility": "REDUNDANT",
+      "verdict": "REJECTED (Duplicates already pruned in 8B.4)"
+    },
+    "strategy_3_recording_session_grouped": {
+      "name": "Recording-Session-Grouped Split (Unstratified)",
+      "leakage_risk": "LOW",
+      "class_coverage": "POOR (Missing classes in test/val)",
+      "balance": "HIGHLY_IMBALANCED",
+      "defensibility": "DEFENSIBLE_BUT_INCOMPLETE",
+      "verdict": "REJECTED"
+    },
+    "strategy_4_verified_signer_grouped": {
+      "name": "Verified-Signer-Grouped Split (Leave-Signers-Out)",
+      "leakage_risk": "ZERO_SUBJECT_LEAKAGE",
+      "class_coverage": "IMPOSSIBLE (Nachiketh only covers 25 classes; 62.6% unknown)",
+      "balance": "EXTREMELY_UNBALANCED",
+      "defensibility": "NOT_FEASIBLE_ON_THIS_DATASET",
+      "verdict": "REJECTED_AS_INFEASIBLE"
+    },
+    "strategy_5_hybrid_grouped_stratified": {
+      "name": "Hybrid Session-Burst Grouped & Stratified Split",
+      "leakage_risk": "LOW_SESSION_LEAKAGE",
+      "class_coverage": "100% (All 49 classes guaranteed in train, val, test)",
+      "balance": "APPROXIMATELY_70_15_15",
+      "defensibility": "SCIENTIFICALLY_DEFENSIBLE_CROSS_SESSION",
+      "verdict": "RECOMMENDED"
+    }
+  },
+  "recommendation": {
+    "recommended_strategy": "HYBRID_SESSION_BURST_GROUPED_AND_STRATIFIED",
+    "grouping_key": "class_name + session_burst_identifier",
+    "target_ratios": {
+      "train": 0.7,
+      "val": 0.15,
+      "test": 0.15
+    },
+    "random_seed": 42,
+    "min_val_samples_per_class": 2,
+    "min_test_samples_per_class": 2,
+    "generalization_claim_boundary": "Must be reported as Cross-Session / Take-Independent Evaluation. Full subject-independence cannot be claimed due to unannotated 62.6% dataset portion.",
+    "decision": "GO_FOR_PHASE_8B.5B_SPLIT_CREATION"
+  }
+}

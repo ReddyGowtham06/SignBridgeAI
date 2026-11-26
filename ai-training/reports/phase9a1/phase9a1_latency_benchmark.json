@@ -1,0 +1,33 @@
+{
+  "benchmark_environment": {
+    "runtime": "Node.js v24.19.0",
+    "platform": "win32",
+    "iterations": 1000,
+    "warmup": 100,
+    "input_dimension": 758,
+    "output_dimension": 49
+  },
+  "m1_champion_linear": {
+    "mean_ms": 0.039,
+    "median_ms": 0.038,
+    "p90_ms": 0.0392,
+    "p95_ms": 0.0431,
+    "p99_ms": 0.073,
+    "min_ms": 0.0364,
+    "max_ms": 0.105
+  },
+  "m5_small_mlp": {
+    "mean_ms": 0.1115,
+    "median_ms": 0.1087,
+    "p90_ms": 0.112,
+    "p95_ms": 0.1209,
+    "p99_ms": 0.1721,
+    "min_ms": 0.1061,
+    "max_ms": 0.3785
+  },
+  "latency_comparison": {
+    "median_ratio_m5_vs_m1": 2.86,
+    "meets_realtime_budget_under_20ms": true,
+    "conclusion": "Both models execute comfortably under 1.0ms per frame, well within the 33ms (30 FPS) budget."
+  }
+}

@@ -1,0 +1,15 @@
+condition_id,condition_category,condition_name,tested_scope,detection_stability,acceptance_expectation,top1_accuracy_trend,primary_stress_factor
+C1,Lighting,Normal Indoor (300-500 lux),Standard,Stable (>98%),High (>85%),Optimal Baseline,Baseline reference condition
+C2,Lighting,Low Ambient (<100 lux),Stress,Degraded (70-85%),Reduced (<60%),Significant Drop,Motion blur and contrast loss on fingertips
+C3,Distance,Close-up (~0.5m),Framing,Partial Truncation (60-75%),Reduced (<50%),Severe Drop,Hands leave camera frame boundaries
+C4,Distance,Standard (~1.0m),Framing,Optimal (>95%),High (>80%),Optimal Baseline,Upper body and both hands fully in view
+C5,Distance,Far (~1.8m),Framing,Small Landmark Area (75-85%),Moderate (60%),Moderate Drop,Hand bounding box pixel resolution reduced
+C6,Positioning,Centered in Frame,Spatial,Optimal (>95%),High (>85%),Optimal Baseline,Full symmetry for Slot 0 / Slot 1 canonicalization
+C7,Positioning,Off-Center / Lateral,Spatial,Asymmetric (80-90%),Moderate (70%),Moderate Drop,Signer hand crosses midline, causing slot swap
+C8,Speed,Normal (1.5 - 2.5s duration),Temporal,Optimal (>95%),High (>85%),Optimal Baseline,Aligns with 60-frame buffer (2.0s) and 15-frame stride
+C9,Speed,Rapid (<1.0s quick flick),Temporal,Stable Detection,Severe Rejection (>75%),Failure,Gesture clears buffer before 2-streak debouncer fires
+C10,Speed,Sustained Hold (>3.5s hold),Temporal,Stable Detection,Severe Rejection (>80%),Failure,Velocity drops below 0.05 units/s (Gate 2 rejection)
+C11,Gesture Type,Single-Handed Signs,Kinematics,Optimal (>95%),High (>80%),High (~70-85%),Zero hand-to-hand occlusion risk
+C12,Gesture Type,Two-Handed Non-Overlapping,Kinematics,High (>90%),Moderate (>70%),Moderate (~60-75%),Both hands tracked cleanly when separated
+C13,Gesture Type,Two-Handed Mutual Occlusion,Kinematics,Severe Drop (<25%),Severe Drop (<20%),Failure (<15%),Hands overlap; MediaPipe drops one hand & flips identity
+C14,Gesture Type,Facial Proximity Signs,Kinematics,Degraded (<50%),Moderate Drop (<40%),Severe Drop,Fingers near mouth/nose/hair confuse bounding box

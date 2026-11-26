@@ -1,0 +1,930 @@
+{
+  "metadata": {
+    "phase": "PHASE 8B.6B: CONTROLLED MODEL TRAINING & EVALUATION",
+    "generated_at": "2026-11-25T07:39:09.109985+00:00",
+    "status": "COMPLETED_PASSED",
+    "dataset_split": "ai-training/data/staged_phase8b5b_split/",
+    "sample_counts": {
+      "train": 631,
+      "val": 142,
+      "test": 142,
+      "total": 915
+    },
+    "feature_dim": 758,
+    "num_classes": 49,
+    "champion_model": "M1: Softmax Logistic Regression (L2)",
+    "champion_checkpoint": "m1_softmax_regression.npz",
+    "champion_export_json": "phase8b6b_champion.json"
+  },
+  "candidates": [
+    {
+      "model_id": "M1",
+      "name": "Softmax Logistic Regression (L2)",
+      "family": "Linear / Probabilistic",
+      "checkpoint": "m1_softmax_regression.npz",
+      "val_macro_f1": 0.5178,
+      "val_weighted_f1": 0.5173,
+      "val_acc": 0.5423,
+      "val_top3": 0.7324,
+      "val_weak": 18,
+      "test_macro_f1": 0.4709,
+      "test_weighted_f1": 0.4699,
+      "test_acc": 0.507,
+      "test_top3": 0.7113,
+      "test_wilson_ci": "[42.6%, 58.8%]",
+      "test_weak": 20,
+      "params": 37191,
+      "train_time_sec": 34.41,
+      "hyperparameters": {
+        "lr": 0.05,
+        "l2": 0.01,
+        "bs": 32
+      },
+      "is_champion": true
+    },
+    {
+      "model_id": "M4",
+      "name": "Linear SVM (One-vs-Rest Hinge)",
+      "family": "Max-Margin Linear",
+      "checkpoint": "m4_linear_svm_ovr.npz",
+      "val_macro_f1": 0.5142,
+      "val_weighted_f1": 0.5124,
+      "val_acc": 0.5563,
+      "val_top3": 0.7676,
+      "val_weak": 19,
+      "test_macro_f1": 0.3898,
+      "test_weighted_f1": 0.388,
+      "test_acc": 0.4366,
+      "test_top3": 0.6901,
+      "test_wilson_ci": "[35.8%, 51.9%]",
+      "test_weak": 28,
+      "params": 37191,
+      "train_time_sec": 25.44,
+      "hyperparameters": {
+        "C": 1.0,
+        "loss": "squared_hinge"
+      },
+      "is_champion": false
+    },
+    {
+      "model_id": "M5",
+      "name": "Small MLP (1 Hidden Layer, 128 units)",
+      "family": "Feed-Forward Neural Net",
+      "checkpoint": "m5_small_mlp.npz",
+      "val_macro_f1": 0.4838,
+      "val_weighted_f1": 0.4844,
+      "val_acc": 0.5141,
+      "val_top3": 0.7887,
+      "val_weak": 21,
+      "test_macro_f1": 0.4698,
+      "test_weighted_f1": 0.4718,
+      "test_acc": 0.5,
+      "test_top3": 0.7606,
+      "test_wilson_ci": "[41.9%, 58.1%]",
+      "test_weak": 21,
+      "params": 103473,
+      "train_time_sec": 3.84,
+      "hyperparameters": {
+        "hidden_dim": 128,
+        "dropout": 0.4,
+        "l2_reg": 0.001,
+        "epochs_trained": 58
+      },
+      "is_champion": false
+    },
+    {
+      "model_id": "M2",
+      "name": "Nearest Centroid (Euclidean)",
+      "family": "Prototype / Geometric",
+      "checkpoint": "m2_nearest_centroid_euclidean.npz",
+      "val_macro_f1": 0.2702,
+      "val_weighted_f1": 0.2636,
+      "val_acc": 0.3169,
+      "val_top3": 0.5352,
+      "val_weak": 34,
+      "test_macro_f1": 0.2492,
+      "test_weighted_f1": 0.2533,
+      "test_acc": 0.2817,
+      "test_top3": 0.4366,
+      "test_wilson_ci": "[21.4%, 36.1%]",
+      "test_weak": 34,
+      "params": 37142,
+      "train_time_sec": 0.002,
+      "hyperparameters": {
+        "metric": "euclidean"
+      },
+      "is_champion": false
+    },
+    {
+      "model_id": "M3",
+      "name": "Nearest Centroid (Cosine)",
+      "family": "Prototype / Geometric",
+      "checkpoint": "m3_nearest_centroid_cosine.npz",
+      "val_macro_f1": 0.2593,
+      "val_weighted_f1": 0.2622,
+      "val_acc": 0.3099,
+      "val_top3": 0.5634,
+      "val_weak": 35,
+      "test_macro_f1": 0.2687,
+      "test_weighted_f1": 0.2735,
+      "test_acc": 0.3099,
+      "test_top3": 0.4718,
+      "test_wilson_ci": "[24.0%, 39.0%]",
+      "test_weak": 35,
+      "params": 37142,
+      "train_time_sec": 0.004,
+      "hyperparameters": {
+        "metric": "cosine",
+        "normalized": true
+      },
+      "is_champion": false
+    }
+  ],
+  "champion_detailed_test_metrics": {
+    "overall_accuracy": 0.507,
+    "top3_accuracy": 0.7113,
+    "wilson_ci_95": {
+      "lower": 0.4257,
+      "upper": 0.588,
+      "formatted": "[42.6%, 58.8%]"
+    },
+    "macro_avg": {
+      "precision": 0.5155,
+      "recall": 0.5068,
+      "f1_score": 0.4709
+    },
+    "weighted_avg": {
+      "precision": 0.5143,
+      "recall": 0.507,
+      "f1_score": 0.4699
+    },
+    "weak_classes_count": 20,
+    "weak_classes": [
+      {
+        "class_id": 2,
+        "class_name": "11.monsoon",
+        "f1_score": 0.3333,
+        "recall": 0.3333,
+        "precision": 0.3333,
+        "support": 3
+      },
+      {
+        "class_id": 4,
+        "class_name": "13.angry",
+        "f1_score": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "support": 3
+      },
+      {
+        "class_id": 7,
+        "class_name": "16.eat",
+        "f1_score": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "support": 3
+      },
+      {
+        "class_id": 8,
+        "class_name": "17.friend",
+        "f1_score": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "support": 3
+      },
+      {
+        "class_id": 9,
+        "class_name": "18.drinking",
+        "f1_score": 0.4,
+        "recall": 0.3333,
+        "precision": 0.5,
+        "support": 3
+      },
+      {
+        "class_id": 11,
+        "class_name": "2.black",
+        "f1_score": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "support": 3
+      },
+      {
+        "class_id": 13,
+        "class_name": "21.good",
+        "f1_score": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "support": 3
+      },
+      {
+        "class_id": 17,
+        "class_name": "25.mother",
+        "f1_score": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "support": 3
+      },
+      {
+        "class_id": 21,
+        "class_name": "29.nose",
+        "f1_score": 0.1429,
+        "recall": 0.3333,
+        "precision": 0.0909,
+        "support": 3
+      },
+      {
+        "class_id": 22,
+        "class_name": "3.cat",
+        "f1_score": 0.3333,
+        "recall": 0.5,
+        "precision": 0.25,
+        "support": 2
+      },
+      {
+        "class_id": 28,
+        "class_name": "35.student",
+        "f1_score": 0.4,
+        "recall": 0.3333,
+        "precision": 0.5,
+        "support": 3
+      },
+      {
+        "class_id": 30,
+        "class_name": "37.teacher",
+        "f1_score": 0.4,
+        "recall": 0.3333,
+        "precision": 0.5,
+        "support": 3
+      },
+      {
+        "class_id": 31,
+        "class_name": "38.thankyou",
+        "f1_score": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "support": 3
+      },
+      {
+        "class_id": 33,
+        "class_name": "4.cow",
+        "f1_score": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "support": 3
+      },
+      {
+        "class_id": 36,
+        "class_name": "42.work",
+        "f1_score": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "support": 3
+      },
+      {
+        "class_id": 38,
+        "class_name": "44.teeth",
+        "f1_score": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "support": 3
+      },
+      {
+        "class_id": 41,
+        "class_name": "47.umberlla",
+        "f1_score": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "support": 2
+      },
+      {
+        "class_id": 43,
+        "class_name": "5.dog",
+        "f1_score": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "support": 3
+      },
+      {
+        "class_id": 46,
+        "class_name": "7.goodmorning",
+        "f1_score": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "support": 3
+      },
+      {
+        "class_id": 47,
+        "class_name": "8.grey",
+        "f1_score": 0.0,
+        "recall": 0.0,
+        "precision": 0.0,
+        "support": 3
+      }
+    ],
+    "top_confusions": [
+      {
+        "true_class_id": 11,
+        "true_class": "2.black",
+        "pred_class_id": 21,
+        "predicted_class": "29.nose",
+        "count": 3
+      },
+      {
+        "true_class_id": 13,
+        "true_class": "21.good",
+        "pred_class_id": 8,
+        "predicted_class": "17.friend",
+        "count": 3
+      },
+      {
+        "true_class_id": 38,
+        "true_class": "44.teeth",
+        "pred_class_id": 21,
+        "predicted_class": "29.nose",
+        "count": 3
+      },
+      {
+        "true_class_id": 43,
+        "true_class": "5.dog",
+        "pred_class_id": 24,
+        "predicted_class": "31.sit",
+        "count": 3
+      },
+      {
+        "true_class_id": 4,
+        "true_class": "13.angry",
+        "pred_class_id": 47,
+        "predicted_class": "8.grey",
+        "count": 2
+      },
+      {
+        "true_class_id": 7,
+        "true_class": "16.eat",
+        "pred_class_id": 21,
+        "predicted_class": "29.nose",
+        "count": 2
+      },
+      {
+        "true_class_id": 17,
+        "true_class": "25.mother",
+        "pred_class_id": 25,
+        "predicted_class": "32.sorry",
+        "count": 2
+      },
+      {
+        "true_class_id": 21,
+        "true_class": "29.nose",
+        "pred_class_id": 7,
+        "predicted_class": "16.eat",
+        "count": 2
+      },
+      {
+        "true_class_id": 28,
+        "true_class": "35.student",
+        "pred_class_id": 33,
+        "predicted_class": "4.cow",
+        "count": 2
+      },
+      {
+        "true_class_id": 30,
+        "true_class": "37.teacher",
+        "pred_class_id": 15,
+        "predicted_class": "23.evening",
+        "count": 2
+      },
+      {
+        "true_class_id": 31,
+        "true_class": "38.thankyou",
+        "pred_class_id": 29,
+        "predicted_class": "36.study",
+        "count": 2
+      },
+      {
+        "true_class_id": 32,
+        "true_class": "39.today",
+        "pred_class_id": 34,
+        "predicted_class": "40.tommorow",
+        "count": 2
+      },
+      {
+        "true_class_id": 33,
+        "true_class": "4.cow",
+        "pred_class_id": 11,
+        "predicted_class": "2.black",
+        "count": 2
+      },
+      {
+        "true_class_id": 46,
+        "true_class": "7.goodmorning",
+        "pred_class_id": 48,
+        "predicted_class": "9.hello",
+        "count": 2
+      },
+      {
+        "true_class_id": 47,
+        "true_class": "8.grey",
+        "pred_class_id": 48,
+        "predicted_class": "9.hello",
+        "count": 2
+      }
+    ],
+    "per_class": {
+      "1.bird": {
+        "class_id": 0,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "f1_score": 0.8,
+        "support": 3,
+        "tp": 2,
+        "fp": 0,
+        "fn": 1
+      },
+      "10.youareperfect": {
+        "class_id": 1,
+        "precision": 0.6,
+        "recall": 1.0,
+        "f1_score": 0.75,
+        "support": 3,
+        "tp": 3,
+        "fp": 2,
+        "fn": 0
+      },
+      "11.monsoon": {
+        "class_id": 2,
+        "precision": 0.3333,
+        "recall": 0.3333,
+        "f1_score": 0.3333,
+        "support": 3,
+        "tp": 1,
+        "fp": 2,
+        "fn": 2
+      },
+      "12.afternoon": {
+        "class_id": 3,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1_score": 0.6667,
+        "support": 2,
+        "tp": 1,
+        "fp": 0,
+        "fn": 1
+      },
+      "13.angry": {
+        "class_id": 4,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "support": 3,
+        "tp": 0,
+        "fp": 1,
+        "fn": 3
+      },
+      "14.bad": {
+        "class_id": 5,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 3,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0
+      },
+      "15.boy": {
+        "class_id": 6,
+        "precision": 0.5,
+        "recall": 0.5,
+        "f1_score": 0.5,
+        "support": 2,
+        "tp": 1,
+        "fp": 1,
+        "fn": 1
+      },
+      "16.eat": {
+        "class_id": 7,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "support": 3,
+        "tp": 0,
+        "fp": 3,
+        "fn": 3
+      },
+      "17.friend": {
+        "class_id": 8,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "support": 3,
+        "tp": 0,
+        "fp": 3,
+        "fn": 3
+      },
+      "18.drinking": {
+        "class_id": 9,
+        "precision": 0.5,
+        "recall": 0.3333,
+        "f1_score": 0.4,
+        "support": 3,
+        "tp": 1,
+        "fp": 1,
+        "fn": 2
+      },
+      "19.girl": {
+        "class_id": 10,
+        "precision": 0.6,
+        "recall": 1.0,
+        "f1_score": 0.75,
+        "support": 3,
+        "tp": 3,
+        "fp": 2,
+        "fn": 0
+      },
+      "2.black": {
+        "class_id": 11,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "support": 3,
+        "tp": 0,
+        "fp": 3,
+        "fn": 3
+      },
+      "20.brother": {
+        "class_id": 12,
+        "precision": 1.0,
+        "recall": 0.3333,
+        "f1_score": 0.5,
+        "support": 3,
+        "tp": 1,
+        "fp": 0,
+        "fn": 2
+      },
+      "21.good": {
+        "class_id": 13,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "support": 3,
+        "tp": 0,
+        "fp": 0,
+        "fn": 3
+      },
+      "22.father": {
+        "class_id": 14,
+        "precision": 1.0,
+        "recall": 0.3333,
+        "f1_score": 0.5,
+        "support": 3,
+        "tp": 1,
+        "fp": 0,
+        "fn": 2
+      },
+      "23.evening": {
+        "class_id": 15,
+        "precision": 0.6,
+        "recall": 1.0,
+        "f1_score": 0.75,
+        "support": 3,
+        "tp": 3,
+        "fp": 2,
+        "fn": 0
+      },
+      "24.help": {
+        "class_id": 16,
+        "precision": 1.0,
+        "recall": 0.6667,
+        "f1_score": 0.8,
+        "support": 3,
+        "tp": 2,
+        "fp": 0,
+        "fn": 1
+      },
+      "25.mother": {
+        "class_id": 17,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "support": 3,
+        "tp": 0,
+        "fp": 4,
+        "fn": 3
+      },
+      "26.NAME": {
+        "class_id": 18,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 2,
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      "27.Night": {
+        "class_id": 19,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 3,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0
+      },
+      "28.Music": {
+        "class_id": 20,
+        "precision": 0.75,
+        "recall": 1.0,
+        "f1_score": 0.8571,
+        "support": 3,
+        "tp": 3,
+        "fp": 1,
+        "fn": 0
+      },
+      "29.nose": {
+        "class_id": 21,
+        "precision": 0.0909,
+        "recall": 0.3333,
+        "f1_score": 0.1429,
+        "support": 3,
+        "tp": 1,
+        "fp": 10,
+        "fn": 2
+      },
+      "3.cat": {
+        "class_id": 22,
+        "precision": 0.25,
+        "recall": 0.5,
+        "f1_score": 0.3333,
+        "support": 2,
+        "tp": 1,
+        "fp": 3,
+        "fn": 1
+      },
+      "30.sleep": {
+        "class_id": 23,
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "f1_score": 0.6667,
+        "support": 3,
+        "tp": 2,
+        "fp": 1,
+        "fn": 1
+      },
+      "31.sit": {
+        "class_id": 24,
+        "precision": 0.4286,
+        "recall": 1.0,
+        "f1_score": 0.6,
+        "support": 3,
+        "tp": 3,
+        "fp": 4,
+        "fn": 0
+      },
+      "32.sorry": {
+        "class_id": 25,
+        "precision": 0.6,
+        "recall": 1.0,
+        "f1_score": 0.75,
+        "support": 3,
+        "tp": 3,
+        "fp": 2,
+        "fn": 0
+      },
+      "33.stand": {
+        "class_id": 26,
+        "precision": 1.0,
+        "recall": 0.3333,
+        "f1_score": 0.5,
+        "support": 3,
+        "tp": 1,
+        "fp": 0,
+        "fn": 2
+      },
+      "34.stop": {
+        "class_id": 27,
+        "precision": 0.6667,
+        "recall": 0.6667,
+        "f1_score": 0.6667,
+        "support": 3,
+        "tp": 2,
+        "fp": 1,
+        "fn": 1
+      },
+      "35.student": {
+        "class_id": 28,
+        "precision": 0.5,
+        "recall": 0.3333,
+        "f1_score": 0.4,
+        "support": 3,
+        "tp": 1,
+        "fp": 1,
+        "fn": 2
+      },
+      "36.study": {
+        "class_id": 29,
+        "precision": 0.6,
+        "recall": 1.0,
+        "f1_score": 0.75,
+        "support": 3,
+        "tp": 3,
+        "fp": 2,
+        "fn": 0
+      },
+      "37.teacher": {
+        "class_id": 30,
+        "precision": 0.5,
+        "recall": 0.3333,
+        "f1_score": 0.4,
+        "support": 3,
+        "tp": 1,
+        "fp": 1,
+        "fn": 2
+      },
+      "38.thankyou": {
+        "class_id": 31,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "support": 3,
+        "tp": 0,
+        "fp": 0,
+        "fn": 3
+      },
+      "39.today": {
+        "class_id": 32,
+        "precision": 1.0,
+        "recall": 0.3333,
+        "f1_score": 0.5,
+        "support": 3,
+        "tp": 1,
+        "fp": 0,
+        "fn": 2
+      },
+      "4.cow": {
+        "class_id": 33,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "support": 3,
+        "tp": 0,
+        "fp": 3,
+        "fn": 3
+      },
+      "40.tommorow": {
+        "class_id": 34,
+        "precision": 0.6,
+        "recall": 1.0,
+        "f1_score": 0.75,
+        "support": 3,
+        "tp": 3,
+        "fp": 2,
+        "fn": 0
+      },
+      "41.welcome": {
+        "class_id": 35,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 3,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0
+      },
+      "42.work": {
+        "class_id": 36,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "support": 3,
+        "tp": 0,
+        "fp": 0,
+        "fn": 3
+      },
+      "43.yesterday": {
+        "class_id": 37,
+        "precision": 1.0,
+        "recall": 0.3333,
+        "f1_score": 0.5,
+        "support": 3,
+        "tp": 1,
+        "fp": 0,
+        "fn": 2
+      },
+      "44.teeth": {
+        "class_id": 38,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "support": 3,
+        "tp": 0,
+        "fp": 1,
+        "fn": 3
+      },
+      "45.hand": {
+        "class_id": 39,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 3,
+        "tp": 3,
+        "fp": 0,
+        "fn": 0
+      },
+      "46.write": {
+        "class_id": 40,
+        "precision": 0.75,
+        "recall": 1.0,
+        "f1_score": 0.8571,
+        "support": 3,
+        "tp": 3,
+        "fp": 1,
+        "fn": 0
+      },
+      "47.umberlla": {
+        "class_id": 41,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "support": 2,
+        "tp": 0,
+        "fp": 0,
+        "fn": 2
+      },
+      "48.ring": {
+        "class_id": 42,
+        "precision": 0.6,
+        "recall": 1.0,
+        "f1_score": 0.75,
+        "support": 3,
+        "tp": 3,
+        "fp": 2,
+        "fn": 0
+      },
+      "5.dog": {
+        "class_id": 43,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "support": 3,
+        "tp": 0,
+        "fp": 2,
+        "fn": 3
+      },
+      "50.power": {
+        "class_id": 44,
+        "precision": 0.75,
+        "recall": 1.0,
+        "f1_score": 0.8571,
+        "support": 3,
+        "tp": 3,
+        "fp": 1,
+        "fn": 0
+      },
+      "6.fish": {
+        "class_id": 45,
+        "precision": 1.0,
+        "recall": 0.3333,
+        "f1_score": 0.5,
+        "support": 3,
+        "tp": 1,
+        "fp": 0,
+        "fn": 2
+      },
+      "7.goodmorning": {
+        "class_id": 46,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "support": 3,
+        "tp": 0,
+        "fp": 1,
+        "fn": 3
+      },
+      "8.grey": {
+        "class_id": 47,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1_score": 0.0,
+        "support": 3,
+        "tp": 0,
+        "fp": 2,
+        "fn": 3
+      },
+      "9.hello": {
+        "class_id": 48,
+        "precision": 0.375,
+        "recall": 1.0,
+        "f1_score": 0.5455,
+        "support": 3,
+        "tp": 3,
+        "fp": 5,
+        "fn": 0
+      }
+    }
+  },
+  "reproducibility_and_parity": {
+    "scaler_fitted_on_train_only": true,
+    "test_set_strictly_frozen_during_selection": true,
+    "historical_artifacts_untouched": true,
+    "python_typescript_parity": "100% agreement, 0.00e+00 max logit diff"
+  }
+}

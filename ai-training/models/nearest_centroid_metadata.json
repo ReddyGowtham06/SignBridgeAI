@@ -1,0 +1,10 @@
+{
+  "model_type": "nearest_centroid",
+  "train_samples": 615,
+  "feature_dim": 758,
+  "classes_count": 49,
+  "train_accuracy": 0.548,
+  "val_accuracy": 0.4348,
+  "training_time_sec": 0.14,
+  "weights_file": "D:\\SignBridgeAI\\ai-training\\models\\nearest_centroid_model.npz"
+}

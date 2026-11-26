@@ -1,0 +1,5 @@
+public/wasm/**
+public/models/**
+dist/**
+node_modules/**
+
