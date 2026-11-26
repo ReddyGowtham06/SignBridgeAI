@@ -4,10 +4,14 @@
  */
 import type { AuthTokens } from './types';
 
+const DEFAULT_API_BASE_URL = import.meta.env.PROD
+  ? 'https://signbridge-api.vercel.app/api'
+  : 'http://127.0.0.1:8000/api';
+
 const API_BASE_URL =
   (import.meta.env.VITE_API_BASE_URL as string | undefined) ||
   (import.meta.env.VITE_API_URL as string | undefined) ||
-  'http://127.0.0.1:8000/api';
+  DEFAULT_API_BASE_URL;
 
 export class ApiError extends Error {
   status: number;
